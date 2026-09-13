@@ -61,6 +61,54 @@
         margin: 0 auto;
     }
 
+    /* Services Grid (2 Columns on Tablet) */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    /* Pricing Section */
+    .pricing-tiers-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto 50px auto;
+        gap: 28px;
+    }
+
+    .pricing-card.is-featured {
+        transform: none;
+    }
+
+    .pricing-card.is-featured:hover {
+        transform: translateY(-6px);
+    }
+
+    .pricing-menu-columns {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    /* Gallery Asymmetric Grid */
+    .gallery-asymmetric-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 240px;
+        gap: 16px;
+    }
+
+    .gallery-card-item.gallery-item-1 {
+        grid-row: span 1;
+    }
+
+    .gallery-card-item.gallery-item-4 {
+        grid-column: span 1;
+    }
+
+    /* Team Grid */
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+    }
+
     /* Services & Products Grids */
     .grid-3 {
         grid-template-columns: repeat(2, 1fr);
@@ -164,6 +212,106 @@
         left: 20px;
         bottom: -20px;
         transform: scale(0.85);
+    }
+
+    /* Services Grid to 1 Col on Mobile */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Pricing Menu Mobile */
+    .pricing-menu-wrap {
+        padding: 28px 18px;
+    }
+
+    .pricing-card {
+        padding: 32px 22px;
+    }
+
+    .menu-item-head {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .menu-item-dots {
+        display: none;
+    }
+
+    .menu-item-name {
+        font-size: 1.15rem;
+    }
+
+    /* Gallery Asymmetric Grid on Mobile */
+    .gallery-asymmetric-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 260px;
+        gap: 16px;
+    }
+
+    .gallery-card-item.gallery-item-1,
+    .gallery-card-item.gallery-item-4 {
+        grid-row: auto;
+        grid-column: auto;
+    }
+
+    /* Team Grid on Mobile */
+    .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+        margin: 0 auto;
+        gap: 28px;
+    }
+
+    .team-photo-wrap {
+        height: 380px;
+    }
+
+    /* Testimonials Carousel Mobile (1 slide per view) */
+    .testimonials-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .testimonial-slide {
+        flex: 0 0 100%;
+    }
+
+    .testimonial-card {
+        padding: 28px 20px;
+    }
+
+    .testimonial-text {
+        font-size: 1.05rem;
+    }
+
+    /* Lightbox Modal Responsive */
+    .lightbox-modal-container {
+        width: 95vw;
+        max-height: 92vh;
+        margin: 10px;
+    }
+
+    .lightbox-media-box {
+        height: 280px;
+    }
+
+    .lightbox-meta-box {
+        padding: 16px 18px;
+    }
+
+    .lightbox-nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .lightbox-prev-btn {
+        left: 10px;
+    }
+
+    .lightbox-next-btn {
+        right: 10px;
     }
 
     /* Grids to single column */

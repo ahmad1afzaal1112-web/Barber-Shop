@@ -41,14 +41,13 @@ $services = get_services();
                     <h3 class="footer-title">Quick Links</h3>
                     <ul class="footer-links-list">
                         <li><a href="#hero">Home</a></li>
-                        <li><a href="#about">About Our Heritage</a></li>
-                        <li><a href="#services">Grooming Menu</a></li>
-                        <li><a href="#gallery">Client Portfolio</a></li>
-                        <li><a href="#shop">Curated Apothecary</a></li>
+                        <li><a href="#services">Barber Services</a></li>
+                        <li><a href="#pricing">Pricing Packages</a></li>
+                        <li><a href="#video">Craftsmanship Reel</a></li>
+                        <li><a href="#appointment">VIP Reservation</a></li>
+                        <li><a href="#gallery">Artisan Portfolio</a></li>
                         <li><a href="#team">Master Barbers</a></li>
                         <li><a href="#testimonials">Client Endorsements</a></li>
-                        <li><a href="#faq">Frequently Asked</a></li>
-                        <li><a href="#appointment">VIP Reservation</a></li>
                     </ul>
                 </div>
 

@@ -111,18 +111,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    if (videoBtn) videoBtn.addEventListener('click', openVideoModal);
-    if (heroVideoBtn) heroVideoBtn.addEventListener('click', openVideoModal);
-
-        function closeVideoModal() {
+    function closeVideoModal() {
+        if (videoModal) {
             videoModal.classList.remove('active');
             if (videoFrame) {
                 videoFrame.src = '';
             }
             document.body.style.overflow = '';
         }
+    }
 
-        if (videoClose) videoClose.addEventListener('click', closeVideoModal);
+    if (videoBtn) videoBtn.addEventListener('click', openVideoModal);
+    if (heroVideoBtn) heroVideoBtn.addEventListener('click', openVideoModal);
+    if (videoClose) videoClose.addEventListener('click', closeVideoModal);
+    if (videoModal) {
         videoModal.addEventListener('click', (e) => {
             if (e.target === videoModal) closeVideoModal();
         });

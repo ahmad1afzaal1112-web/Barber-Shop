@@ -29,73 +29,95 @@ function get_services() {
         }
     }
 
-    // Default High-Fidelity Dataset
+    // Default High-Fidelity Dataset — 8 Signature Services
     return [
         [
             'id' => 1,
-            'title' => 'Classic Haircut & Scalp Wash',
+            'title' => 'Classic Haircut',
             'slug' => 'classic-haircut',
             'price' => 35.00,
             'duration' => '45 Mins',
-            'description' => 'Precision scissor and clipper cut tailored to facial structure, followed by an invigorating botanical shampoo and hot towel scalp massage.',
+            'description' => 'Tailored precision scissor and clipper cut crafted to compliment your natural head shape and personal aesthetic.',
             'icon_name' => 'scissors',
-            'badge' => 'POPULAR',
-            'features' => ['Face shape consultation', 'Precision scissors & clippers', 'Organic botanical wash', 'Artisanal styling pomade']
+            'badge' => 'SIGNATURE',
+            'features' => ['Consultation & scissor work', 'Clean taper & neck line', 'Invigorating hair wash', 'Matte clay styling finish']
         ],
         [
             'id' => 2,
-            'title' => 'Signature Beard Sculpting',
-            'slug' => 'beard-sculpting',
-            'price' => 25.00,
-            'duration' => '30 Mins',
-            'description' => 'Hot eucalyptus towel wrap, meticulous razor edge-lining, custom tapering, and deep nourishment with organic cedarwood and argan oil.',
-            'icon_name' => 'razor',
-            'badge' => 'TRENDING',
-            'features' => ['Dual steam towel wrap', 'Precision razor edging', 'Beard fade & trim', 'Sandalwood conditioning oil']
+            'title' => 'Skin Fade',
+            'slug' => 'skin-fade',
+            'price' => 40.00,
+            'duration' => '50 Mins',
+            'description' => 'Seamless gradient fade down to skin using foil shavers and precision clippers, balanced with textured scissor top work.',
+            'icon_name' => 'scissors',
+            'badge' => 'POPULAR',
+            'features' => ['Zero skin taper blend', 'Foil shaver finish', 'Crisp hairline contour', 'Cool tonic scalp rinse']
         ],
         [
             'id' => 3,
-            'title' => 'Traditional Royal Shave',
-            'slug' => 'royal-shave',
-            'price' => 40.00,
-            'duration' => '40 Mins',
-            'description' => 'Old-world straight razor shave ritual with badger-hair lathering, dual steaming hot towels, and ice-cold astringent finish.',
-            'icon_name' => 'brush',
-            'badge' => 'LUXURY',
-            'features' => ['Pre-shave eucalyptus massage', 'Authentic straight razor shave', 'Double hot towel application', 'Cold towel & aftershave balm']
+            'title' => 'Beard Styling',
+            'slug' => 'beard-styling',
+            'price' => 28.00,
+            'duration' => '30 Mins',
+            'description' => 'Sculpted beard shaping, sharp straight razor cheek lines, hot towel steam, and nourishing organic botanical oils.',
+            'icon_name' => 'razor',
+            'badge' => 'TRENDING',
+            'features' => ['Beard length sculpting', 'Razor cheek & neck line', 'Hot eucalyptus towel', 'Organic cedarwood oil']
         ],
         [
             'id' => 4,
-            'title' => 'Custom Hair Color & Grey Camo',
-            'slug' => 'hair-color',
-            'price' => 50.00,
-            'duration' => '60 Mins',
-            'description' => 'Subtle natural grey blending or full bespoke color transformation formulated by certified master hair colorists.',
-            'icon_name' => 'comb',
-            'badge' => null,
-            'features' => ['Color tone matching', 'Ammonia-free formulation', 'Scalp conditioning wash', 'Longevity style protection']
+            'title' => 'Hair & Beard Combo',
+            'slug' => 'hair-beard-combo',
+            'price' => 58.00,
+            'duration' => '65 Mins',
+            'description' => 'Complete transformation combining our bespoke precision haircut with tailored beard sculpting and hot towel ritual.',
+            'icon_name' => 'crown',
+            'badge' => 'BEST VALUE',
+            'features' => ['Full precision haircut', 'Artisanal beard sculpt', 'Double hot steam towel', 'Styling & beard balm']
         ],
         [
             'id' => 5,
-            'title' => 'Young Gentleman Cut',
-            'slug' => 'young-gentleman',
-            'price' => 28.00,
-            'duration' => '35 Mins',
-            'description' => 'Clean, stylish haircuts for younger gentlemen under 16 with patient, attentive craftsmanship and matte styling pomade.',
-            'icon_name' => 'scissors',
-            'badge' => null,
-            'features' => ['Gentle scissor work', 'Clean neckline taper', 'Wash & rinse', 'Matte clay styling']
+            'title' => 'Royal Shave',
+            'slug' => 'royal-shave',
+            'price' => 45.00,
+            'duration' => '45 Mins',
+            'description' => 'Authentic straight razor shave with rich badger-hair lather, dual hot herbal towels, and soothing cold astringent finish.',
+            'icon_name' => 'brush',
+            'badge' => 'LUXURY',
+            'features' => ['Pre-shave essential oils', 'Traditional straight razor', 'Two hot herbal towels', 'Cold astringent balm']
         ],
         [
             'id' => 6,
-            'title' => 'The Complete Royal VIP Package',
-            'slug' => 'vip-package',
+            'title' => 'Kids Haircut',
+            'slug' => 'kids-haircut',
+            'price' => 26.00,
+            'duration' => '30 Mins',
+            'description' => 'Gentle, patient, and modern cuts for younger gentlemen aged 12 and under, styled with light kid-safe water-based cream.',
+            'icon_name' => 'scissors',
+            'badge' => null,
+            'features' => ['Patient scissor work', 'Clean neckline trim', 'Gentle styling cream', 'Lollipop & beverage']
+        ],
+        [
+            'id' => 7,
+            'title' => 'Hair Styling',
+            'slug' => 'hair-styling',
+            'price' => 30.00,
+            'duration' => '35 Mins',
+            'description' => 'Botanical shampoo wash, professional round-brush blow dry, and bespoke product layering for formal events or nights out.',
+            'icon_name' => 'comb',
+            'badge' => null,
+            'features' => ['Deep cleansing wash', 'Volumizing blow-dry', 'Bespoke pomade styling', 'Style longevity lock']
+        ],
+        [
+            'id' => 8,
+            'title' => 'Premium Grooming',
+            'slug' => 'premium-grooming',
             'price' => 95.00,
             'duration' => '90 Mins',
-            'description' => 'The definitive grooming experience: bespoke haircut, signature beard sculpting, hot lather shave, botanical facial, and single-malt beverage.',
+            'description' => 'The complete gentleman ritual: bespoke haircut, royal straight shave, herbal facial exfoliation, and lounge refreshments.',
             'icon_name' => 'crown',
-            'badge' => 'BEST VALUE',
-            'features' => ['Bespoke haircut & wash', 'Royal straight razor shave', 'Botanical exfoliating facial', 'Complimentary lounge beverage']
+            'badge' => 'VIP EXPERIENCE',
+            'features' => ['Master bespoke haircut', 'Full straight razor shave', 'Herbal steam facial mask', 'Complimentary single-malt']
         ]
     ];
 }
@@ -123,8 +145,8 @@ function get_team_members() {
             'bio' => 'Over 14 years mastering precision scissor work, classic Italian razor rituals, and high-end menswear grooming.',
             'experience_years' => 14,
             'specialty' => 'Classic Scissor Cuts & Fades',
-            'image_url' => 'assets/images/team/barber-1.svg',
-            'social' => ['instagram' => '#', 'facebook' => '#', 'twitter' => '#']
+            'image_url' => 'assets/images/team/barber-1.jpg',
+            'social' => ['instagram' => 'https://instagram.com', 'facebook' => 'https://facebook.com', 'twitter' => 'https://twitter.com']
         ],
         [
             'id' => 2,
@@ -133,8 +155,8 @@ function get_team_members() {
             'bio' => 'Award-winning beard stylist specializing in sculptured beard fades, sharp contouring, and hot towel skin rejuvenation.',
             'experience_years' => 9,
             'specialty' => 'Beard Sculpting & Hot Shave',
-            'image_url' => 'assets/images/team/barber-2.svg',
-            'social' => ['instagram' => '#', 'facebook' => '#', 'twitter' => '#']
+            'image_url' => 'assets/images/team/barber-2.jpg',
+            'social' => ['instagram' => 'https://instagram.com', 'facebook' => 'https://facebook.com', 'twitter' => 'https://twitter.com']
         ],
         [
             'id' => 3,
@@ -143,8 +165,8 @@ function get_team_members() {
             'bio' => 'Expert in modern textured tapers, skin fades, executive scissor styling, and editorial hair aesthetics.',
             'experience_years' => 8,
             'specialty' => 'Modern Fades & Hair Coloring',
-            'image_url' => 'assets/images/team/barber-3.svg',
-            'social' => ['instagram' => '#', 'facebook' => '#', 'twitter' => '#']
+            'image_url' => 'assets/images/team/barber-3.jpg',
+            'social' => ['instagram' => 'https://instagram.com', 'facebook' => 'https://facebook.com', 'twitter' => 'https://twitter.com']
         ]
     ];
 }
@@ -191,6 +213,24 @@ function get_testimonials() {
             'content' => 'Flawless fade, incredible hospitality, and true master craftsmen who genuinely understand bone structure and hair textures. Book in advance—their reputation is well deserved.',
             'rating' => 5,
             'service_received' => 'Classic Haircut & Scalp Wash'
+        ],
+        [
+            'id' => 4,
+            'client_name' => 'Harrison Blake',
+            'client_role' => 'Venture Partner, Blake Capital',
+            'client_avatar' => 'assets/images/testimonials/client-1.svg',
+            'content' => 'The hot towel ritual and straight razor shave are like hitting a master reset button on a stressful week. The caliber of service and privacy in the lounge is unrivaled.',
+            'rating' => 5,
+            'service_received' => 'Traditional Royal Shave'
+        ],
+        [
+            'id' => 5,
+            'client_name' => 'Julian Vance',
+            'client_role' => 'Fashion Editor & Stylist',
+            'client_avatar' => 'assets/images/testimonials/client-2.svg',
+            'content' => 'David listened to exactly what I needed for my editorial look and executed the cleanest skin fade I’ve ever had. Truly the gold standard of modern menswear barbering.',
+            'rating' => 5,
+            'service_received' => 'Skin Fade & Beard Styling'
         ]
     ];
 }
@@ -283,7 +323,7 @@ function get_gallery_items() {
             'title' => 'Executive Low Skin Fade',
             'category' => 'Haircut',
             'category_slug' => 'haircut',
-            'image_url' => 'assets/images/gallery/gallery-1.svg',
+            'image_url' => 'assets/images/gallery/gallery-1.jpg',
             'desc' => 'Precision scissor-over-comb blend with foil shaver skin fade.'
         ],
         [
@@ -291,7 +331,7 @@ function get_gallery_items() {
             'title' => 'Sculpted Beard & Razor Contour',
             'category' => 'Beard',
             'category_slug' => 'beard',
-            'image_url' => 'assets/images/gallery/gallery-2.svg',
+            'image_url' => 'assets/images/gallery/gallery-2.jpg',
             'desc' => 'Sharp cheek line contouring with botanical beard treatment.'
         ],
         [
@@ -299,7 +339,7 @@ function get_gallery_items() {
             'title' => 'Hot Towel Straight Razor Shave',
             'category' => 'Shave',
             'category_slug' => 'shave',
-            'image_url' => 'assets/images/gallery/gallery-3.svg',
+            'image_url' => 'assets/images/gallery/gallery-3.jpg',
             'desc' => 'Classic luxury shaving ritual with dual steaming herbal towels.'
         ],
         [
@@ -307,7 +347,7 @@ function get_gallery_items() {
             'title' => 'Textured Modern Pompadour',
             'category' => 'Styling',
             'category_slug' => 'styling',
-            'image_url' => 'assets/images/gallery/gallery-4.svg',
+            'image_url' => 'assets/images/gallery/gallery-4.jpg',
             'desc' => 'Volume blow-dry styling locked with matte clay finish.'
         ],
         [
@@ -315,7 +355,7 @@ function get_gallery_items() {
             'title' => 'Classic Side Part & Taper',
             'category' => 'Haircut',
             'category_slug' => 'haircut',
-            'image_url' => 'assets/images/gallery/gallery-5.svg',
+            'image_url' => 'assets/images/gallery/gallery-5.jpg',
             'desc' => 'Timeless gentleman aesthetic with natural scissor-blended taper.'
         ],
         [
@@ -323,8 +363,79 @@ function get_gallery_items() {
             'title' => 'Full Beard Trim & Mustache Wax',
             'category' => 'Beard',
             'category_slug' => 'beard',
-            'image_url' => 'assets/images/gallery/gallery-6.svg',
+            'image_url' => 'assets/images/gallery/gallery-6.jpg',
             'desc' => 'Hand-trimmed beard shape with organic beeswax handlebar styling.'
+        ]
+    ];
+}
+
+/**
+ * Fetch Pricing Packages & Menu
+ */
+function get_pricing_packages() {
+    return [
+        'tiers' => [
+            [
+                'id' => 1,
+                'name' => 'Essential Cut',
+                'badge' => 'STANDARD',
+                'is_popular' => false,
+                'price' => 45.00,
+                'period' => 'Per Visit',
+                'description' => 'Perfect for the modern gentleman needing consistent, sharp maintenance cuts.',
+                'features' => [
+                    'Detailed head shape consultation',
+                    'Precision scissors or clipper fade',
+                    'Invigorating scalp wash & conditioner',
+                    'Neck razor cleanup with hot lather',
+                    'Finishing product & blow-dry style'
+                ],
+                'cta_text' => 'Book Essential'
+            ],
+            [
+                'id' => 2,
+                'name' => 'Signature Grooming',
+                'badge' => 'MOST POPULAR',
+                'is_popular' => true,
+                'price' => 75.00,
+                'period' => 'Per Visit',
+                'description' => 'Our highly recommended flagship pairing: bespoke haircut with artisanal beard sculpting.',
+                'features' => [
+                    'Everything in Essential Cut',
+                    'Custom beard sculpting & razor edge',
+                    'Dual steaming eucalyptus hot towels',
+                    'Cedarwood & argan oil treatment',
+                    'Cold astringent pore closure',
+                    'Complimentary lounge beverage'
+                ],
+                'cta_text' => 'Book Signature'
+            ],
+            [
+                'id' => 3,
+                'name' => 'Royal VIP Experience',
+                'badge' => 'ULTRA LUXURY',
+                'is_popular' => false,
+                'price' => 120.00,
+                'period' => 'Per Visit',
+                'description' => 'The ultimate 90-minute bespoke pampering ritual for distinguished gentlemen.',
+                'features' => [
+                    'Master stylist tailored haircut',
+                    'Old-world straight razor hot shave',
+                    'Exfoliating herbal steam facial mask',
+                    '15-minute shoulder & neck acupressure',
+                    'Full-size styling pomade to take home',
+                    'Top-shelf single-malt whiskey pour'
+                ],
+                'cta_text' => 'Book Royal VIP'
+            ]
+        ],
+        'menu' => [
+            ['title' => 'Classic Scissor Haircut', 'price' => 35.00, 'desc' => 'Handcrafted scissor taper with warm neck lather razor cleanup'],
+            ['title' => 'Low / Mid / High Skin Fade', 'price' => 40.00, 'desc' => 'Zero-fade foil finish with crisp temple and ear outlines'],
+            ['title' => 'Signature Beard Sculpt & Line', 'price' => 28.00, 'desc' => 'Length tapering, cheekbone line shaping & hot towel steam'],
+            ['title' => 'Traditional Straight Razor Shave', 'price' => 45.00, 'desc' => 'Dual hot towel prep, warm badger lather, and soothing balm'],
+            ['title' => 'Executive Hair & Beard Combo', 'price' => 58.00, 'desc' => 'Complete hair styling paired with luxury beard rejuvenation'],
+            ['title' => 'Grey Blending & Color Camo', 'price' => 50.00, 'desc' => 'Natural subtle demi-permanent grey reduction treatment']
         ]
     ];
 }

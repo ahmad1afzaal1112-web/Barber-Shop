@@ -2,6 +2,8 @@
 /**
  * Gallery / Portfolio Section Component
  * Kre8 Luxury Barbershop
+ * 
+ * Asymmetric editorial masonry layout with category filtering and interactive lightbox.
  */
 
 require_once __DIR__ . '/../includes/functions.php';
@@ -9,7 +11,7 @@ $gallery_items = get_gallery_items();
 ?>
 <section class="section gallery-section" id="gallery">
     <!-- Parallax Outlined Background Text -->
-    <div class="section-parallax-bg">PORTFOLIO</div>
+    <div class="section-parallax-bg gold-stroke">PORTFOLIO</div>
 
     <div class="container">
         <!-- Section Header -->
@@ -27,27 +29,38 @@ $gallery_items = get_gallery_items();
         </div>
 
         <!-- Category Filter Tabs -->
-        <div class="gallery-filter-tabs reveal reveal-up delay-1" id="gallery-filters">
-            <button class="filter-tab active" data-filter="all">All Styles</button>
-            <button class="filter-tab" data-filter="haircut">Haircuts</button>
-            <button class="filter-tab" data-filter="beard">Beard Sculpt</button>
-            <button class="filter-tab" data-filter="shave">Royal Shave</button>
-            <button class="filter-tab" data-filter="styling">Styling</button>
+        <div class="gallery-filter-tabs reveal reveal-up delay-1" id="gallery-filters" role="tablist" aria-label="Portfolio Filters">
+            <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All Styles</button>
+            <button class="filter-tab" data-filter="haircut" role="tab" aria-selected="false">Haircuts</button>
+            <button class="filter-tab" data-filter="beard" role="tab" aria-selected="false">Beard Sculpt</button>
+            <button class="filter-tab" data-filter="shave" role="tab" aria-selected="false">Royal Shave</button>
+            <button class="filter-tab" data-filter="styling" role="tab" aria-selected="false">Styling</button>
         </div>
 
-        <!-- 3-Column Masonry/Grid -->
-        <div class="gallery-grid" id="gallery-grid">
+        <!-- Asymmetric Editorial Gallery Grid -->
+        <div class="gallery-asymmetric-grid" id="gallery-grid">
             <?php foreach ($gallery_items as $index => $item): ?>
-                <div class="gallery-item reveal reveal-zoom delay-<?php echo ($index % 3) + 1; ?>" data-category="<?php echo htmlspecialchars($item['category_slug']); ?>" data-src="<?php echo htmlspecialchars($item['image_url']); ?>" data-title="<?php echo htmlspecialchars($item['title']); ?>" data-desc="<?php echo htmlspecialchars($item['desc']); ?>">
-                    <img src="<?php echo htmlspecialchars($item['image_url']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>" class="gallery-img" loading="lazy">
+                <div class="gallery-card-item gallery-item-<?php echo $index + 1; ?> reveal reveal-zoom delay-<?php echo ($index % 3) + 1; ?>" 
+                     data-category="<?php echo htmlspecialchars($item['category_slug']); ?>" 
+                     data-src="<?php echo htmlspecialchars($item['image_url']); ?>" 
+                     data-title="<?php echo htmlspecialchars($item['title']); ?>" 
+                     data-desc="<?php echo htmlspecialchars($item['desc']); ?>"
+                     data-index="<?php echo $index; ?>"
+                     tabindex="0"
+                     role="button"
+                     aria-label="View <?php echo htmlspecialchars($item['title']); ?>">
                     
-                    <div class="gallery-overlay">
-                        <div class="gallery-category-badge"><?php echo htmlspecialchars($item['category']); ?></div>
-                        <h3 class="gallery-title"><?php echo htmlspecialchars($item['title']); ?></h3>
-                        <p style="font-size: 0.8125rem; color: rgba(255,255,255,0.7); margin: 0;"><?php echo htmlspecialchars($item['desc']); ?></p>
+                    <div class="gallery-card-inner">
+                        <img src="<?php echo htmlspecialchars($item['image_url']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>" class="gallery-card-img" loading="lazy">
                         
-                        <div class="gallery-zoom-btn">
-                            <?php echo render_svg_icon('search'); ?>
+                        <div class="gallery-card-overlay">
+                            <span class="gallery-category-pill"><?php echo htmlspecialchars($item['category']); ?></span>
+                            <h3 class="gallery-card-title"><?php echo htmlspecialchars($item['title']); ?></h3>
+                            <p class="gallery-card-desc"><?php echo htmlspecialchars($item['desc']); ?></p>
+                            
+                            <div class="gallery-expand-icon">
+                                <?php echo render_svg_icon('search'); ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -56,20 +69,32 @@ $gallery_items = get_gallery_items();
     </div>
 </section>
 
-<!-- Lightbox Modal Container -->
-<div class="modal-overlay" id="gallery-lightbox">
-    <div class="modal-container" style="max-width: 750px; background: #111214;">
+<!-- Lightbox Modal Container with Next, Prev, Close, and Counter -->
+<div class="modal-overlay" id="gallery-lightbox" aria-modal="true" role="dialog" aria-hidden="true">
+    <div class="modal-container lightbox-modal-container">
         <button class="modal-close" id="lightbox-close" aria-label="Close Lightbox">
             <?php echo render_svg_icon('close'); ?>
         </button>
-        <div class="modal-body" style="flex-direction: column;">
-            <div style="width: 100%; height: 460px; background: #0c0d0f; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                <img src="" alt="Enlarged Portfolio Cut" id="lightbox-img" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+
+        <!-- Navigation Arrows -->
+        <button class="lightbox-nav-btn lightbox-prev-btn" id="lightbox-prev" aria-label="Previous Photo">
+            <?php echo render_svg_icon('chevron-left'); ?>
+        </button>
+        <button class="lightbox-nav-btn lightbox-next-btn" id="lightbox-next" aria-label="Next Photo">
+            <?php echo render_svg_icon('chevron-right'); ?>
+        </button>
+
+        <div class="modal-body lightbox-body-wrap">
+            <div class="lightbox-media-box">
+                <img src="" alt="Enlarged Barber Cut" id="lightbox-img">
             </div>
-            <div style="padding: 24px; width: 100%; border-top: 1px solid var(--color-border);">
-                <div id="lightbox-category" style="font-size: 0.75rem; color: var(--color-accent); text-transform: uppercase; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 4px;">CATEGORY</div>
-                <h3 id="lightbox-title" style="font-size: 1.4rem; color: #fff; margin-bottom: 6px;">Title</h3>
-                <p id="lightbox-desc" style="font-size: 0.9rem; color: var(--color-text-secondary); margin: 0;">Description</p>
+            <div class="lightbox-meta-box">
+                <div class="lightbox-meta-top">
+                    <span id="lightbox-category" class="lightbox-cat-badge">CATEGORY</span>
+                    <span id="lightbox-counter" class="lightbox-counter">1 / 6</span>
+                </div>
+                <h3 id="lightbox-title" class="lightbox-title-text">Title</h3>
+                <p id="lightbox-desc" class="lightbox-desc-text">Description</p>
             </div>
         </div>
     </div>

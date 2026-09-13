@@ -37,6 +37,36 @@ document.addEventListener('DOMContentLoaded', () => {
                     const firstNameInput = document.getElementById('first_name');
                     if (firstNameInput) firstNameInput.focus();
                 }, 600);
+    // 1b. Barber Selection Pre-Fill from Team Cards
+    const barberSelect = document.getElementById('barber');
+    document.querySelectorAll('.select-barber-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const barberName = btn.getAttribute('data-barber');
+            if (barberSelect && barberName) {
+                for (let i = 0; i < barberSelect.options.length; i++) {
+                    if (barberSelect.options[i].value.includes(barberName) || barberSelect.options[i].text.includes(barberName)) {
+                        barberSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            // Scroll to appointment form smoothly
+            const apptSection = document.getElementById('appointment');
+            if (apptSection) {
+                const headerOffset = 90;
+                const elementPosition = apptSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+
+                setTimeout(() => {
+                    const firstNameInput = document.getElementById('first_name');
+                    if (firstNameInput) firstNameInput.focus();
+                }, 600);
             }
         });
     });

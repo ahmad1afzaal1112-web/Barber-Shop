@@ -4,7 +4,7 @@
  * Kre8 Luxury Barbershop
  */
 ?>
-<section class="video-section" id="video" style="background-image: url('assets/images/video/video-bg.svg');">
+<section class="video-section" id="video" style="background-image: url('assets/images/video/video-bg.jpg');">
     <div class="video-overlay"></div>
 
     <div class="container video-content reveal reveal-zoom">
@@ -17,16 +17,16 @@
 
         <div class="section-tagline" style="color: var(--color-accent); margin-bottom: 16px;">
             <?php echo render_svg_icon('sparkles'); ?>
-            <span>The Kre8 Experience</span>
+            <span>Craftsmanship &amp; Heritage</span>
         </div>
 
-        <h2 class="section-title" style="font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 20px;">
+        <h2 class="section-title" style="font-size: clamp(2.2rem, 4.2vw, 3.4rem); margin-bottom: 20px;">
             Immerse Yourself in the Ritual of <br>
             <span class="text-gold-gradient">Master Barbering</span>
         </h2>
 
-        <p class="section-desc" style="max-width: 620px; margin-bottom: 32px;">
-            Watch our master artisans in action as they craft timeless fades, razor-sharp beard contours, and restorative hot towel treatments.
+        <p class="section-desc" style="max-width: 640px; margin-bottom: 32px;">
+            Witness our master artisans in action as they sculpt timeless fades, razor-sharp beard contours, and restorative steaming towel rituals.
         </p>
 
         <a href="#appointment" class="btn btn-primary">

@@ -1,7 +1,17 @@
 <?php
 /**
- * Services & Pricing Section Component
+ * Signature Barber Services Section Component
  * Kre8 Luxury Barbershop
+ * 
+ * 8 Signature Services:
+ * 1. Classic Haircut
+ * 2. Skin Fade
+ * 3. Beard Styling
+ * 4. Hair & Beard Combo
+ * 5. Royal Shave
+ * 6. Kids Haircut
+ * 7. Hair Styling
+ * 8. Premium Grooming
  */
 
 require_once __DIR__ . '/../includes/functions.php';
@@ -19,47 +29,53 @@ $services = get_services();
                 <span>Tailored Grooming Menu</span>
             </div>
             <h2 class="section-title">
-                Artisanal Services &amp; <span class="text-gold-gradient">Fair Pricing</span>
+                Signature Barber <span class="text-gold-gradient">Services</span>
             </h2>
             <p class="section-desc">
-                From precision scissor sculpting to revitalizing straight-razor hot shaves, every service is executed with unparalleled mastery and top-tier organic botanical formulations.
+                From precision scissor sculpting to revitalizing straight-razor hot shaves, every ritual is executed with master craftsmanship and organic botanical formulations.
             </p>
         </div>
 
-        <!-- 3-Column Services Grid -->
-        <div class="grid grid-3">
+        <!-- 4-Column Responsive Services Grid (8 Services) -->
+        <div class="services-grid">
             <?php foreach ($services as $index => $service): ?>
-                <div class="service-card reveal reveal-up delay-<?php echo ($index % 3) + 1; ?>">
-                    <div>
-                        <div class="service-card-header">
-                            <div class="service-icon-box">
-                                <?php echo render_svg_icon($service['icon_name'] ?? 'scissors'); ?>
-                            </div>
-                            <div class="service-price-wrap">
-                                <div class="service-price"><?php echo format_price($service['price']); ?></div>
-                                <div class="service-duration"><?php echo htmlspecialchars($service['duration']); ?></div>
-                            </div>
-                        </div>
+                <div class="service-card reveal reveal-up delay-<?php echo ($index % 4) + 1; ?>">
+                    <?php if (!empty($service['badge'])): ?>
+                        <span class="service-card-badge"><?php echo htmlspecialchars($service['badge']); ?></span>
+                    <?php endif; ?>
 
+                    <div class="service-card-top">
+                        <div class="service-icon-box">
+                            <?php echo render_svg_icon($service['icon_name'] ?? 'scissors'); ?>
+                        </div>
+                        <div class="service-price-wrap">
+                            <div class="service-price"><?php echo format_price($service['price']); ?></div>
+                            <div class="service-duration"><?php echo htmlspecialchars($service['duration']); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="service-card-body">
                         <h3 class="service-title"><?php echo htmlspecialchars($service['title']); ?></h3>
                         <p class="service-desc"><?php echo htmlspecialchars($service['description']); ?></p>
 
                         <?php if (!empty($service['features'])): ?>
-                            <div class="service-features-list">
+                            <ul class="service-features-list">
                                 <?php foreach ($service['features'] as $feat): ?>
-                                    <div class="service-feature-item">
+                                    <li class="service-feature-item">
                                         <?php echo render_svg_icon('check'); ?>
                                         <span><?php echo htmlspecialchars($feat); ?></span>
-                                    </div>
+                                    </li>
                                 <?php endforeach; ?>
-                            </div>
+                            </ul>
                         <?php endif; ?>
                     </div>
 
-                    <a href="#appointment" class="btn btn-outline btn-sm select-service-btn" data-service="<?php echo htmlspecialchars($service['title']); ?>" style="width: 100%;">
-                        <span>Book This Service</span>
-                        <?php echo render_svg_icon('arrow-right'); ?>
-                    </a>
+                    <div class="service-card-footer">
+                        <a href="#appointment" class="btn btn-outline btn-sm select-service-btn" data-service="<?php echo htmlspecialchars($service['title']); ?>">
+                            <span>Book This Service</span>
+                            <?php echo render_svg_icon('arrow-right'); ?>
+                        </a>
+                    </div>
                 </div>
             <?php endforeach; ?>
         </div>
