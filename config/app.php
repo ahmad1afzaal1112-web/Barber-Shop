@@ -10,7 +10,7 @@ return [
     'app_url' => 'http://localhost:8000',
     'phone' => '+1 (555) 349-8201',
     'phone_clean' => '+15553498201',
-    'email' => 'info@kre8barbershop.com',
+    'email' => 'care@kre8barber.com',
     'address' => '742 Evergreen Terrace, Suite 100, Beverly Hills, CA 90210',
     'hours' => [
         'Mon - Fri' => '09:00 AM - 08:00 PM',
@@ -32,14 +32,12 @@ return [
         'master_barbers' => '12+'
     ],
     'nav_menu' => [
-        ['label' => 'Home', 'url' => '#hero', 'active' => true],
-        ['label' => 'About', 'url' => '#about', 'active' => false],
-        ['label' => 'Services', 'url' => '#services', 'active' => false],
-        ['label' => 'Gallery', 'url' => '#gallery', 'active' => false],
-        ['label' => 'Shop', 'url' => '#shop', 'active' => false],
-        ['label' => 'Team', 'url' => '#team', 'active' => false],
-        ['label' => 'Reviews', 'url' => '#testimonials', 'active' => false],
-        ['label' => 'Blog', 'url' => '#blog', 'active' => false],
-        ['label' => 'Contact', 'url' => '#appointment', 'active' => false]
+        ['label' => 'Home', 'url' => '#hero', 'active' => true, 'has_dropdown' => true],
+        ['label' => 'About Us', 'url' => '#about', 'active' => false, 'has_dropdown' => false],
+        ['label' => 'Services', 'url' => '#services', 'active' => false, 'has_dropdown' => false],
+        ['label' => 'Shop', 'url' => '#products', 'active' => false, 'has_dropdown' => true],
+        ['label' => 'Blogs', 'url' => '#blog', 'active' => false, 'has_dropdown' => true],
+        ['label' => 'Pages', 'url' => '#gallery', 'active' => false, 'has_dropdown' => true],
+        ['label' => 'Contact Us', 'url' => '#appointment', 'active' => false, 'has_dropdown' => false]
     ]
 ];

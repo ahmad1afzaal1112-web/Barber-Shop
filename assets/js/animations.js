@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const observerOptions = {
         root: null,
-        rootMargin: '0px 0px -60px 0px',
-        threshold: 0.12
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.1
     };
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -23,5 +23,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => {
         revealObserver.observe(el);
+    });
+
+    // Immediate viewport reveal trigger for above-the-fold hero elements
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('is-revealed');
+                }
+            });
+        }, 80);
     });
 });

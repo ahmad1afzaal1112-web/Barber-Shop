@@ -95,19 +95,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. Video CTA Modal Popup Handler
     const videoBtn = document.getElementById('play-video-btn');
+    const heroVideoBtn = document.getElementById('hero-watch-video');
     const videoModal = document.getElementById('video-modal');
     const videoClose = document.getElementById('video-modal-close');
     const videoFrame = document.getElementById('video-frame');
 
-    if (videoBtn && videoModal) {
-        videoBtn.addEventListener('click', () => {
+    function openVideoModal(e) {
+        if (e) e.preventDefault();
+        if (videoModal) {
             videoModal.classList.add('active');
             if (videoFrame) {
-                // Demo Barber Reel URL
                 videoFrame.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
             }
             document.body.style.overflow = 'hidden';
-        });
+        }
+    }
+
+    if (videoBtn) videoBtn.addEventListener('click', openVideoModal);
+    if (heroVideoBtn) heroVideoBtn.addEventListener('click', openVideoModal);
 
         function closeVideoModal() {
             videoModal.classList.remove('active');

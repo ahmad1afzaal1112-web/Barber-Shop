@@ -1,9 +1,17 @@
 /**
- * Kre8 Luxury Barbershop - Hero Slider & Stats Bar Styles
+ * Kre8 Luxury Barbershop — Hero Slider & Stats Bar Styles
+ * Reference Design:
+ * - Full-height dark cinematic photography slider with Ken Burns zoom & vignette
+ * - 10% Off discount pill badge
+ * - "More Than a Haircut A / Signature Grooming / Experience" typography
+ * - Dual CTAs: Book Appointment (Gold) + Watch Our Video (White)
+ * - Ultra Prestigious Winner glassmorphic card with gold laurel wreath & avatar cluster
+ * - 3-slide interactive pagination dots
+ * - Below-Hero 4-metric stats counter bar
  */
 
 /* ==========================================================================
-   Hero Slider Wrapper
+   Hero Section Container
    ========================================================================== */
 .hero-section {
     position: relative;
@@ -11,12 +19,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: calc(var(--topbar-height) + var(--header-height) + 40px);
-    padding-bottom: 60px;
+    padding-top: calc(var(--topbar-height) + var(--header-height) + 30px);
+    padding-bottom: clamp(50px, 6vw, 80px);
     background-color: var(--color-bg-primary);
     overflow: hidden;
 }
 
+/* ==========================================================================
+   Background Photo Slider with Ken Burns Zoom & Vignette Overlay
+   ========================================================================== */
 .hero-slider {
     position: absolute;
     inset: 0;
@@ -32,8 +43,8 @@
     height: 100%;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1),
-                visibility 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-slide.active {
@@ -47,19 +58,23 @@
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center;
+    background-position: center 30%;
     transform: scale(1.08);
-    transition: transform 7s ease-out;
+    transition: transform 7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-slide.active .hero-slide-bg {
     transform: scale(1);
 }
 
+/* Cinematic Dual Radial & Linear Gradient Overlay */
 .hero-slide-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 75% 40%, rgba(17,18,20,0.6) 0%, rgba(17,18,20,0.92) 70%, #111214 100%);
+    background: 
+        radial-gradient(circle at 75% 38%, rgba(17, 18, 20, 0.35) 0%, rgba(17, 18, 20, 0.82) 65%, #111214 100%),
+        linear-gradient(to right, rgba(17, 18, 20, 0.94) 0%, rgba(17, 18, 20, 0.72) 48%, rgba(17, 18, 20, 0.38) 100%),
+        linear-gradient(to top, #111214 0%, transparent 25%);
 }
 
 /* ==========================================================================
@@ -69,187 +84,340 @@
     position: relative;
     z-index: var(--z-content);
     width: 100%;
-    margin-bottom: clamp(40px, 6vw, 70px);
+    margin-bottom: clamp(36px, 5vw, 64px);
 }
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.25fr 0.75fr;
-    gap: var(--gap-xl);
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: clamp(24px, 4vw, 56px);
     align-items: center;
 }
 
 .hero-text-col {
-    max-width: 720px;
+    max-width: 740px;
 }
 
-.hero-badge {
+/* 10% Off Discount Pill Badge */
+.hero-kicker-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 18px;
-    background: rgba(201, 177, 130, 0.12);
-    border: 1px solid var(--color-border-accent);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.badge-pill {
+    display: inline-block;
+    padding: 5px 14px;
+    background: rgba(196, 169, 122, 0.18);
+    border: 1px solid #C4A97A;
     border-radius: var(--radius-full);
-    color: var(--color-accent);
-    font-size: var(--fs-badge);
-    font-weight: var(--fw-bold);
-    letter-spacing: 0.18em;
+    color: #C4A97A;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    margin-bottom: 24px;
-    box-shadow: 0 4px 15px rgba(201, 177, 130, 0.1);
+    box-shadow: 0 2px 10px rgba(196, 169, 122, 0.15);
 }
 
-.hero-badge svg {
-    width: 14px;
-    height: 14px;
+.badge-kicker-text {
+    color: var(--color-text-primary);
+    font-size: clamp(0.88rem, 1.1vw, 0.98rem);
+    font-weight: 500;
+    letter-spacing: 0.02em;
 }
 
+/* Main Hero Headline */
 .hero-title {
-    font-size: var(--fs-hero);
-    line-height: var(--lh-tight);
-    margin-bottom: 24px;
-    font-weight: var(--fw-bold);
-    letter-spacing: 0.01em;
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5.2vw, 4.6rem);
+    line-height: 1.12;
+    font-weight: 800;
+    color: #F5F3EF;
+    letter-spacing: -0.01em;
+    margin-bottom: 22px;
 }
 
+.text-gold-accent {
+    color: #C4A97A;
+    display: inline-block;
+    position: relative;
+}
+
+/* Hero Supporting Paragraph */
 .hero-desc {
-    font-size: var(--fs-body-lg);
-    color: var(--color-text-secondary);
-    line-height: var(--lh-body);
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    color: rgba(245, 243, 239, 0.78);
+    line-height: 1.7;
     margin-bottom: 36px;
-    max-width: 580px;
+    max-width: 600px;
+    font-weight: 400;
 }
 
+/* Dual CTAs (Gold Book Appointment + White Watch Our Video) */
 .hero-cta-group {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
     flex-wrap: wrap;
 }
 
-/* ==========================================================================
-   Hero Glassmorphic Award Card (Right Column)
-   ========================================================================== */
-.hero-award-card {
-    position: relative;
-    padding: 36px;
-    background: rgba(22, 24, 27, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--color-border-accent);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-gold-lg);
-    max-width: 380px;
-    margin-left: auto;
-}
-
-.hero-award-header {
-    display: flex;
+.btn-gold-hero {
+    display: inline-flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: 12px;
+    padding: 14px 32px;
+    background: #C4A97A;
+    color: #111214;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 6px 20px rgba(196, 169, 122, 0.28);
+    transition: all var(--transition-normal);
 }
 
-.hero-award-icon {
-    width: 54px;
-    height: 54px;
-    border-radius: var(--radius-full);
-    background: var(--color-accent-gradient);
-    color: var(--color-text-dark);
+.btn-gold-hero:hover {
+    background: #D8C39A;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(196, 169, 122, 0.42);
+}
+
+.btn-gold-hero svg {
+    width: 16px;
+    height: 16px;
+    transition: transform var(--transition-fast);
+}
+
+.btn-gold-hero:hover svg {
+    transform: translateX(4px);
+}
+
+.btn-white-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 32px;
+    background: #FFFFFF;
+    color: #111214;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    transition: all var(--transition-normal);
+}
+
+.btn-white-hero:hover {
+    background: #F5F3EF;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(255, 255, 255, 0.25);
+}
+
+.btn-white-hero svg {
+    width: 16px;
+    height: 16px;
+    transition: transform var(--transition-fast);
+}
+
+.btn-white-hero:hover svg {
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   Right Glassmorphic Award Card ("Ultra Prestigious Winner")
+   ========================================================================== */
+.hero-award-col {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-prestigious-card {
+    position: relative;
+    padding: 34px 28px;
+    background: rgba(22, 24, 27, 0.72);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(196, 169, 122, 0.25);
+    border-radius: 12px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(196, 169, 122, 0.2);
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.hero-prestigious-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(196, 169, 122, 0.2);
+}
+
+.prestigious-badge-wrap {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--shadow-gold);
-    flex-shrink: 0;
+    margin-bottom: 24px;
 }
 
-.hero-award-icon svg {
-    width: 26px;
-    height: 26px;
+.prestigious-laurel-svg {
+    width: 180px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
 }
 
-.hero-award-title {
-    font-size: 1.15rem;
-    font-family: var(--font-heading);
-    font-weight: var(--fw-bold);
-    color: var(--color-text-primary);
-    line-height: 1.2;
-}
-
-.hero-award-subtitle {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--color-accent);
-}
-
-.hero-award-divider {
-    height: 1px;
-    background: var(--color-border);
-    margin: 20px 0;
-}
-
-.hero-award-reviews {
+.prestigious-badge-content {
+    position: relative;
+    z-index: 2;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    gap: 2px;
 }
 
-.hero-award-info {
-    text-align: right;
-}
-
-.hero-award-rating-num {
+.badge-title-ultra {
     font-family: var(--font-heading);
-    font-size: 1.85rem;
-    font-weight: var(--fw-bold);
-    color: var(--color-text-primary);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #F5F3EF;
     line-height: 1;
 }
 
-.hero-award-rating-text {
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
+.badge-title-prestigious {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #C4A97A;
+    line-height: 1.2;
+}
+
+.badge-scope {
+    font-size: 0.58rem;
+    letter-spacing: 1.5px;
+    color: rgba(245, 243, 239, 0.6);
+    text-transform: uppercase;
+}
+
+.badge-five-stars {
+    color: #C4A97A;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    margin: 3px 0;
+}
+
+.badge-winner-tag {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #F5F3EF;
+    text-transform: uppercase;
+}
+
+/* Avatar Cluster */
+.award-avatar-cluster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.award-avatar-img {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    border: 2px solid #C4A97A;
+    background-color: var(--color-bg-primary);
+    margin-left: -10px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: transform var(--transition-fast);
+}
+
+.award-avatar-img:first-child {
+    margin-left: 0;
+}
+
+.award-avatar-img:hover {
+    transform: translateY(-3px) scale(1.1);
+    z-index: 5;
+}
+
+.award-avatar-count {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    border: 2px solid #C4A97A;
+    background: #C4A97A;
+    color: #111214;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.award-card-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 16px 0;
+}
+
+.award-quote-text {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: rgba(245, 243, 239, 0.9);
+    margin: 0;
+    line-height: 1.4;
 }
 
 /* ==========================================================================
-   Hero Slider Navigation Controls
+   Hero Slider Pagination Dots
    ========================================================================== */
-.hero-controls {
-    position: absolute;
-    bottom: 120px;
-    left: var(--container-padding-x);
+.hero-pagination-wrap {
+    position: relative;
     z-index: var(--z-content);
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    margin-bottom: 30px;
 }
 
 .slider-dots {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .slider-dot {
     width: 12px;
     height: 12px;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.3);
     border: none;
     cursor: pointer;
+    padding: 0;
     transition: all var(--transition-normal);
+}
+
+.slider-dot:hover {
+    background: rgba(255, 255, 255, 0.6);
 }
 
 .slider-dot.active {
     width: 36px;
-    background: var(--color-accent);
-    box-shadow: 0 0 12px rgba(201, 177, 130, 0.5);
+    background: #C4A97A;
+    box-shadow: 0 0 14px rgba(196, 169, 122, 0.65);
 }
 
 /* ==========================================================================
-   Stats Counter Bar (Below Hero)
+   Below-Hero Stats Counter Bar
    ========================================================================== */
 .hero-stats-bar {
     position: relative;
@@ -258,13 +426,13 @@
 }
 
 .stats-card {
-    background: rgba(17, 18, 20, 0.85);
+    background: rgba(17, 18, 20, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--color-border-accent);
+    border: 1px solid rgba(196, 169, 122, 0.22);
     border-radius: var(--radius-md);
-    padding: 32px 40px;
-    box-shadow: var(--shadow-md);
+    padding: 30px 40px;
+    box-shadow: var(--shadow-md), 0 0 30px rgba(0, 0, 0, 0.5);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--gap-lg);
@@ -285,20 +453,26 @@
     transform: translateY(-50%);
     width: 1px;
     height: 48px;
-    background: var(--color-border);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .stat-icon-wrap {
     width: 52px;
     height: 52px;
     border-radius: var(--radius-full);
-    background: rgba(201, 177, 130, 0.12);
-    border: 1px solid var(--color-border-accent);
-    color: var(--color-accent);
+    background: rgba(196, 169, 122, 0.12);
+    border: 1px solid rgba(196, 169, 122, 0.3);
+    color: #C4A97A;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.stat-item:hover .stat-icon-wrap {
+    transform: scale(1.08);
+    background: rgba(196, 169, 122, 0.22);
 }
 
 .stat-icon-wrap svg {
@@ -308,17 +482,96 @@
 
 .stat-number {
     font-family: var(--font-heading);
-    font-size: 2.25rem;
-    font-weight: var(--fw-bold);
+    font-size: 2.2rem;
+    font-weight: 800;
     color: var(--color-text-primary);
     line-height: 1;
     margin-bottom: 4px;
 }
 
+.stat-number.text-gold {
+    color: #C4A97A;
+}
+
 .stat-label {
-    font-size: var(--fs-small);
+    font-size: 0.8rem;
     color: var(--color-text-secondary);
-    font-weight: var(--fw-medium);
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1100px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .hero-award-col {
+        justify-content: flex-start;
+    }
+    
+    .hero-prestigious-card {
+        max-width: 380px;
+        margin-left: 0;
+    }
+
+    .stats-card {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+        padding: 24px;
+    }
+
+    .stat-item:nth-child(2)::after {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: calc(var(--topbar-height) + var(--header-height) + 20px);
+        padding-bottom: 40px;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-gold-hero, .btn-white-hero {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .stats-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .stat-item:not(:last-child)::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .badge-pill {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+
+    .badge-kicker-text {
+        font-size: 0.82rem;
+    }
+
+    .hero-prestigious-card {
+        padding: 24px 18px;
+    }
 }
