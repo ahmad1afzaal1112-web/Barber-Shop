@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="600" height="500">
+  <defs>
+    <linearGradient id="galGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c2227" />
+      <stop offset="100%" stop-color="#0c0d0f" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#galGrad4)"/>
+  <rect x="15" y="15" width="570" height="470" rx="8" fill="none" stroke="rgba(201,177,130,0.3)" stroke-width="1.5"/>
+  
+  <!-- Textured Modern Pompadour -->
+  <g transform="translate(300, 230)">
+    <circle cx="0" cy="-10" r="95" fill="#382e25"/>
+    <path d="M-100 -30 C-110 -150 20 -160 100 -110 C120 -80 110 -25 90 0 C70 -60 10 -105 -60 -80 Z" fill="#121316"/>
+  </g>
+  <text x="300" y="440" font-family="'Cormorant Infant', serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">TEXTURED MODERN POMPADOUR</text>
+  <text x="300" y="465" font-family="'Inter Tight', sans-serif" font-size="11" font-weight="600" fill="#C9B182" text-anchor="middle" letter-spacing="2">STYLING &amp; POMADE</text>
+</svg>

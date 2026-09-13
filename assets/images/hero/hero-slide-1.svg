@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="heroDarkVignette" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#181a1f" stop-opacity="0.85" />
+      <stop offset="60%" stop-color="#111214" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#08090a" stop-opacity="1" />
+    </radialGradient>
+    <linearGradient id="goldBeam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C9B182" stop-opacity="0.25" />
+      <stop offset="50%" stop-color="#8E784D" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#111214" stop-opacity="0" />
+    </linearGradient>
+    <pattern id="luxGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(201, 177, 130, 0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="100%" height="100%" fill="#111214"/>
+  <rect width="100%" height="100%" fill="url(#luxGrid)"/>
+
+  <!-- Atmospheric Glows -->
+  <circle cx="85%" cy="35%" r="500" fill="#C9B182" opacity="0.08" filter="blur(90px)"/>
+  <circle cx="20%" cy="80%" r="400" fill="#6A552F" opacity="0.06" filter="blur(80px)"/>
+
+  <!-- Geometric Luxury Angled Panels -->
+  <polygon points="1200,0 1920,0 1920,1080 1450,1080" fill="url(#goldBeam)" opacity="0.6"/>
+  
+  <!-- Stylized Barber Chair / Scissor Silhouette on the right side -->
+  <g transform="translate(1100, 200) scale(1.4)" opacity="0.22">
+    <!-- Vintage Chair Base -->
+    <ellipse cx="250" cy="480" rx="140" ry="25" fill="none" stroke="#C9B182" stroke-width="2"/>
+    <rect x="235" y="400" width="30" height="80" fill="#C9B182" opacity="0.4"/>
+    <!-- Seat & Backrest -->
+    <rect x="150" y="360" width="200" height="45" rx="8" fill="none" stroke="#C9B182" stroke-width="2"/>
+    <rect x="170" y="220" width="160" height="130" rx="12" fill="none" stroke="#C9B182" stroke-width="2"/>
+    <rect x="200" y="160" width="100" height="50" rx="6" fill="none" stroke="#C9B182" stroke-width="2"/>
+    <!-- Armrests -->
+    <path d="M140 280 L140 370" stroke="#C9B182" stroke-width="3" stroke-linecap="round"/>
+    <path d="M360 280 L360 370" stroke="#C9B182" stroke-width="3" stroke-linecap="round"/>
+    <!-- Scissors Icon Accent -->
+    <circle cx="420" cy="180" r="28" fill="none" stroke="#C9B182" stroke-width="1.5"/>
+    <circle cx="420" cy="260" r="28" fill="none" stroke="#C9B182" stroke-width="1.5"/>
+    <line x1="440" y1="195" x2="520" y2="290" stroke="#C9B182" stroke-width="2.5"/>
+    <line x1="440" y1="245" x2="520" y2="150" stroke="#C9B182" stroke-width="2.5"/>
+  </g>
+
+  <!-- Dark Overlay Vignette -->
+  <rect width="100%" height="100%" fill="url(#heroDarkVignette)"/>
+  
+  <!-- Subtle Framing lines -->
+  <line x1="120" y1="0" x2="120" y2="1080" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  <line x1="1800" y1="0" x2="1800" y2="1080" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+</svg>

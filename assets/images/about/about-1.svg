@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="600" height="700">
+  <defs>
+    <linearGradient id="abGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1e24" />
+      <stop offset="50%" stop-color="#141518" />
+      <stop offset="100%" stop-color="#0a0b0d" />
+    </linearGradient>
+    <linearGradient id="goldAccentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DFCDA4" />
+      <stop offset="100%" stop-color="#C9B182" />
+    </linearGradient>
+    <radialGradient id="spotlight1" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#C9B182" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#C9B182" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#abGrad1)"/>
+  <rect width="100%" height="100%" fill="url(#spotlight1)"/>
+
+  <!-- Gold Border Frame -->
+  <rect x="20" y="20" width="560" height="660" rx="12" fill="none" stroke="url(#goldAccentGrad)" stroke-width="1.5" opacity="0.4"/>
+  
+  <!-- Gentleman Barber Portrait Vector Art -->
+  <g transform="translate(300, 360)">
+    <!-- Shoulders & Suit -->
+    <path d="M-180 280 C-180 180 -120 140 -50 130 L50 130 C120 140 180 180 180 280 Z" fill="#181a1f" stroke="rgba(201,177,130,0.3)" stroke-width="2"/>
+    <!-- Collar & Tie -->
+    <polygon points="0,140 -35,130 -15,220 0,260 15,220 35,130" fill="#C9B182"/>
+    <!-- Neck -->
+    <rect x="-35" y="60" width="70" height="80" rx="8" fill="#302a24"/>
+    <!-- Face & Beard -->
+    <path d="M-65 -20 C-65 70 -50 120 0 130 C50 120 65 70 65 -20 C65 -80 -65 -80 -65 -20 Z" fill="#3d352e"/>
+    <!-- Sculpted Beard -->
+    <path d="M-60 10 C-60 90 -40 135 0 145 C40 135 60 90 60 10 C45 35 20 40 0 40 C-20 40 -45 35 -60 10 Z" fill="#121316"/>
+    <!-- Mustache -->
+    <path d="M-40 25 Q0 35 40 25 Q20 5 0 15 Q-20 5 -40 25 Z" fill="#121316"/>
+    <!-- Pompadour Hair -->
+    <path d="M-75 -20 C-85 -110 -20 -150 20 -140 C70 -130 90 -70 70 -10 C60 -60 30 -90 -20 -70 C-50 -55 -65 -35 -75 -20 Z" fill="#121316"/>
+    <!-- Scissors in Hand -->
+    <g transform="translate(110, 40) rotate(-25)">
+      <circle cx="0" cy="0" r="14" fill="none" stroke="#C9B182" stroke-width="2.5"/>
+      <circle cx="0" cy="35" r="14" fill="none" stroke="#C9B182" stroke-width="2.5"/>
+      <line x1="8" y1="8" x2="65" y2="60" stroke="#C9B182" stroke-width="3"/>
+      <line x1="8" y1="27" x2="65" y2="-25" stroke="#C9B182" stroke-width="3"/>
+    </g>
+  </g>
+
+  <!-- Watermark Badge Text -->
+  <text x="300" y="620" font-family="'Cormorant Infant', serif" font-size="22" font-weight="600" fill="#C9B182" text-anchor="middle" letter-spacing="3">MASTER CRAFTSMANSHIP</text>
+  <text x="300" y="645" font-family="'Inter Tight', sans-serif" font-size="11" font-weight="500" fill="rgba(255,255,255,0.5)" text-anchor="middle" letter-spacing="2">KRE8 LUXURY SALON</text>
+</svg>

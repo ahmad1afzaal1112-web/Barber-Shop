@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="600" height="500">
+  <defs>
+    <linearGradient id="galGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e2229" />
+      <stop offset="100%" stop-color="#0c0d0f" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#galGrad1)"/>
+  <rect x="15" y="15" width="570" height="470" rx="8" fill="none" stroke="rgba(201,177,130,0.3)" stroke-width="1.5"/>
+  
+  <!-- Fade Cut Hairstyle Illustration -->
+  <g transform="translate(300, 240)">
+    <circle cx="0" cy="-20" r="110" fill="#3a3028"/>
+    <!-- Skin fade contour -->
+    <path d="M-110 -20 C-110 90 0 130 110 -20 C100 -90 -10 -130 -110 -20 Z" fill="#2d251f"/>
+    <!-- Top Crop Fade Hair -->
+    <path d="M-115 -30 C-120 -130 10 -150 90 -100 C120 -80 110 -25 90 0 C70 -60 10 -95 -70 -70 Z" fill="#121316"/>
+  </g>
+  <text x="300" y="440" font-family="'Cormorant Infant', serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">EXECUTIVE LOW SKIN FADE</text>
+  <text x="300" y="465" font-family="'Inter Tight', sans-serif" font-size="11" font-weight="600" fill="#C9B182" text-anchor="middle" letter-spacing="2">HAIRCUT &amp; BLEND</text>
+</svg>

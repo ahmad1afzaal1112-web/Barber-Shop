@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 620" width="500" height="620">
+  <defs>
+    <linearGradient id="teamGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#282622" />
+      <stop offset="60%" stop-color="#181716" />
+      <stop offset="100%" stop-color="#0b0c0e" />
+    </linearGradient>
+    <linearGradient id="goldSheen2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5E6C8" />
+      <stop offset="100%" stop-color="#C9B182" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#teamGrad2)"/>
+  
+  <circle cx="250" cy="220" r="160" fill="none" stroke="rgba(201,177,130,0.15)" stroke-width="1.5" stroke-dasharray="4 6"/>
+  <circle cx="250" cy="220" r="210" fill="none" stroke="rgba(201,177,130,0.08)" stroke-width="1"/>
+
+  <!-- Marcus Vance Figure (Full Beard Specialist) -->
+  <g transform="translate(250, 310)">
+    <path d="M-150 260 C-150 160 -90 120 -40 110 L40 110 C90 120 150 160 150 260 Z" fill="#1b1c1e" stroke="rgba(201,177,130,0.4)" stroke-width="2"/>
+    <!-- Leather Apron Center -->
+    <rect x="-40" y="110" width="80" height="150" fill="#2d2217" stroke="#C9B182" stroke-width="1"/>
+    <!-- Head & Prominent Beard -->
+    <rect x="-28" y="50" width="56" height="70" rx="6" fill="#3d3328"/>
+    <path d="M-55 -30 C-55 50 -40 90 0 100 C40 90 55 50 55 -30 C55 -80 -55 -80 -55 -30 Z" fill="#4a3e30"/>
+    <!-- Buzzcut Fade -->
+    <path d="M-58 -25 C-60 -85 0 -95 40 -80 C60 -65 58 -25 45 -10 C35 -50 0 -70 -45 -50 Z" fill="#1a1c20"/>
+    <!-- Heavy Viking/Artisan Beard -->
+    <path d="M-55 -10 C-60 90 -35 150 0 160 C35 150 60 90 55 -10 C40 25 15 35 0 35 C-15 35 -40 25 -55 -10 Z" fill="#111214"/>
+  </g>
+
+  <!-- Name Card -->
+  <rect x="50" y="520" width="400" height="70" rx="8" fill="rgba(17,18,20,0.85)" stroke="rgba(201,177,130,0.3)" stroke-width="1"/>
+  <text x="250" y="548" font-family="'Cormorant Infant', serif" font-size="22" font-weight="700" fill="#FFFFFF" text-anchor="middle">Marcus Vance</text>
+  <text x="250" y="572" font-family="'Inter Tight', sans-serif" font-size="11" font-weight="600" fill="url(#goldSheen2)" text-anchor="middle" letter-spacing="2">SENIOR BEARD ARTISAN</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="blGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22252c" />
+      <stop offset="100%" stop-color="#0e0f11" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#blGrad1)"/>
+  <rect x="15" y="15" width="570" height="370" rx="8" fill="none" stroke="rgba(201,177,130,0.3)" stroke-width="1.5"/>
+
+  <!-- Straight Razor Shave Art -->
+  <g transform="translate(300, 180) scale(1.1)">
+    <circle cx="0" cy="0" r="70" fill="none" stroke="rgba(201,177,130,0.2)" stroke-width="1.5"/>
+    <path d="M-60 -30 Q0 -70 80 -30 L60 0 Q0 -30 -60 0 Z" fill="#C9B182"/>
+    <path d="M-60 -30 L-100 40 Q-110 55 -90 65 L-50 0" fill="#1b1c20" stroke="#C9B182" stroke-width="1.5"/>
+  </g>
+  <text x="300" y="320" font-family="'Cormorant Infant', serif" font-size="22" font-weight="700" fill="#FFFFFF" text-anchor="middle">THE ART OF STRAIGHT RAZOR</text>
+  <text x="300" y="345" font-family="'Inter Tight', sans-serif" font-size="10" font-weight="600" fill="#C9B182" text-anchor="middle" letter-spacing="2">GROOMING GUIDE</text>
+</svg>

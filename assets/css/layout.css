@@ -1,0 +1,169 @@
+/**
+ * Kre8 Luxury Barbershop - Layout & Grid System
+ */
+
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding-x);
+    padding-right: var(--container-padding-x);
+}
+
+.container-fluid {
+    width: 100%;
+    padding-left: var(--container-padding-x);
+    padding-right: var(--container-padding-x);
+}
+
+.section {
+    position: relative;
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
+    overflow: hidden;
+}
+
+/* Background Parallax Outline Typography */
+.section-parallax-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-heading);
+    font-size: var(--fs-parallax);
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.04);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    z-index: var(--z-bg-parallax);
+    letter-spacing: 0.15em;
+    opacity: 0.8;
+}
+
+.section-parallax-bg.gold-stroke {
+    -webkit-text-stroke: 1px rgba(201, 177, 130, 0.06);
+}
+
+/* Section Header Styles */
+.section-header {
+    margin-bottom: clamp(40px, 6vw, 70px);
+    position: relative;
+    z-index: var(--z-content);
+}
+
+.section-header.text-center {
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: var(--fs-badge);
+    font-weight: var(--fw-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--color-accent);
+    margin-bottom: 14px;
+}
+
+.section-tagline::before,
+.section-tagline::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background-color: var(--color-accent);
+}
+
+.section-tagline.no-after::after {
+    display: none;
+}
+
+.section-title {
+    font-size: var(--fs-h2);
+    margin-bottom: 16px;
+    line-height: 1.15;
+}
+
+.section-desc {
+    font-size: var(--fs-body-lg);
+    color: var(--color-text-secondary);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Flexbox System */
+.d-flex { display: flex; }
+.flex-column { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.align-center { align-items: center; }
+.align-start { align-items: flex-start; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-end { justify-content: flex-end; }
+
+.gap-1 { gap: var(--gap-xs); }
+.gap-2 { gap: var(--gap-sm); }
+.gap-3 { gap: var(--gap-md); }
+.gap-4 { gap: var(--gap-lg); }
+.gap-5 { gap: var(--gap-xl); }
+
+/* Grid System */
+.grid {
+    display: grid;
+    gap: var(--gap-md);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-lg);
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-md);
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap-md);
+}
+
+.grid-auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--gap-md);
+}
+
+/* Layout Split Containers */
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap-xl);
+    align-items: center;
+}
+
+.split-layout.reversed {
+    grid-template-columns: 1fr 1fr;
+}
+
+.split-layout.unequal-left {
+    grid-template-columns: 1.15fr 0.85fr;
+}
+
+.split-layout.unequal-right {
+    grid-template-columns: 0.85fr 1.15fr;
+}

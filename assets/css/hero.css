@@ -1,0 +1,324 @@
+/**
+ * Kre8 Luxury Barbershop - Hero Slider & Stats Bar Styles
+ */
+
+/* ==========================================================================
+   Hero Slider Wrapper
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: calc(var(--topbar-height) + var(--header-height) + 40px);
+    padding-bottom: 60px;
+    background-color: var(--color-bg-primary);
+    overflow: hidden;
+}
+
+.hero-slider {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hero-slide-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.08);
+    transition: transform 7s ease-out;
+}
+
+.hero-slide.active .hero-slide-bg {
+    transform: scale(1);
+}
+
+.hero-slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 75% 40%, rgba(17,18,20,0.6) 0%, rgba(17,18,20,0.92) 70%, #111214 100%);
+}
+
+/* ==========================================================================
+   Hero Content Layout
+   ========================================================================== */
+.hero-content-wrap {
+    position: relative;
+    z-index: var(--z-content);
+    width: 100%;
+    margin-bottom: clamp(40px, 6vw, 70px);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: var(--gap-xl);
+    align-items: center;
+}
+
+.hero-text-col {
+    max-width: 720px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: rgba(201, 177, 130, 0.12);
+    border: 1px solid var(--color-border-accent);
+    border-radius: var(--radius-full);
+    color: var(--color-accent);
+    font-size: var(--fs-badge);
+    font-weight: var(--fw-bold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 15px rgba(201, 177, 130, 0.1);
+}
+
+.hero-badge svg {
+    width: 14px;
+    height: 14px;
+}
+
+.hero-title {
+    font-size: var(--fs-hero);
+    line-height: var(--lh-tight);
+    margin-bottom: 24px;
+    font-weight: var(--fw-bold);
+    letter-spacing: 0.01em;
+}
+
+.hero-desc {
+    font-size: var(--fs-body-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--lh-body);
+    margin-bottom: 36px;
+    max-width: 580px;
+}
+
+.hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Hero Glassmorphic Award Card (Right Column)
+   ========================================================================== */
+.hero-award-card {
+    position: relative;
+    padding: 36px;
+    background: rgba(22, 24, 27, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border-accent);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-gold-lg);
+    max-width: 380px;
+    margin-left: auto;
+}
+
+.hero-award-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.hero-award-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-gradient);
+    color: var(--color-text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-gold);
+    flex-shrink: 0;
+}
+
+.hero-award-icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.hero-award-title {
+    font-size: 1.15rem;
+    font-family: var(--font-heading);
+    font-weight: var(--fw-bold);
+    color: var(--color-text-primary);
+    line-height: 1.2;
+}
+
+.hero-award-subtitle {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+}
+
+.hero-award-divider {
+    height: 1px;
+    background: var(--color-border);
+    margin: 20px 0;
+}
+
+.hero-award-reviews {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-award-info {
+    text-align: right;
+}
+
+.hero-award-rating-num {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: var(--fw-bold);
+    color: var(--color-text-primary);
+    line-height: 1;
+}
+
+.hero-award-rating-text {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Hero Slider Navigation Controls
+   ========================================================================== */
+.hero-controls {
+    position: absolute;
+    bottom: 120px;
+    left: var(--container-padding-x);
+    z-index: var(--z-content);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.slider-dots {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.slider-dot.active {
+    width: 36px;
+    background: var(--color-accent);
+    box-shadow: 0 0 12px rgba(201, 177, 130, 0.5);
+}
+
+/* ==========================================================================
+   Stats Counter Bar (Below Hero)
+   ========================================================================== */
+.hero-stats-bar {
+    position: relative;
+    z-index: var(--z-content);
+    width: 100%;
+}
+
+.stats-card {
+    background: rgba(17, 18, 20, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border-accent);
+    border-radius: var(--radius-md);
+    padding: 32px 40px;
+    box-shadow: var(--shadow-md);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap-lg);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    position: relative;
+}
+
+.stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 48px;
+    background: var(--color-border);
+}
+
+.stat-icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-full);
+    background: rgba(201, 177, 130, 0.12);
+    border: 1px solid var(--color-border-accent);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-icon-wrap svg {
+    width: 24px;
+    height: 24px;
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: var(--fw-bold);
+    color: var(--color-text-primary);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: var(--fs-small);
+    color: var(--color-text-secondary);
+    font-weight: var(--fw-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}

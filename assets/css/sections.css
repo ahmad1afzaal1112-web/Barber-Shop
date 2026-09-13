@@ -1,0 +1,947 @@
+/**
+ * Kre8 Luxury Barbershop - Section-Specific Styles
+ */
+
+/* ==========================================================================
+   1. About Section Styles
+   ========================================================================== */
+.about-section {
+    position: relative;
+    background-color: var(--color-bg-primary);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: var(--gap-xl);
+    align-items: center;
+}
+
+/* Composite Image Gallery on the Left */
+.about-images-wrapper {
+    position: relative;
+    min-height: 580px;
+}
+
+.about-img-main {
+    width: 72%;
+    height: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border-accent);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    z-index: 2;
+}
+
+.about-img-sub {
+    position: absolute;
+    right: 0;
+    top: 15%;
+    width: 48%;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border-accent);
+    box-shadow: var(--shadow-lg);
+    z-index: 3;
+}
+
+.about-img-sub2 {
+    position: absolute;
+    right: 15%;
+    bottom: -20px;
+    width: 42%;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    z-index: 1;
+}
+
+/* Rotating Badge Positioned over Images */
+.about-badge-pos {
+    position: absolute;
+    left: 45%;
+    bottom: 40px;
+    z-index: 4;
+}
+
+/* Feature Boxes */
+.about-features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap-md);
+    margin: 32px 0 36px 0;
+}
+
+.about-feature-card {
+    padding: 24px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-normal);
+}
+
+.about-feature-card:hover {
+    border-color: var(--color-border-accent);
+    background: var(--color-bg-card-hover);
+    transform: translateY(-4px);
+}
+
+.about-feature-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-full);
+    background: rgba(201, 177, 130, 0.12);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.about-feature-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.about-feature-title {
+    font-size: 1.1rem;
+    font-weight: var(--fw-bold);
+    margin-bottom: 8px;
+    color: var(--color-text-primary);
+}
+
+.about-feature-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.about-author-row {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+}
+
+/* ==========================================================================
+   2. Services & Pricing Section Styles
+   ========================================================================== */
+.services-section {
+    position: relative;
+    background-color: var(--color-bg-secondary);
+}
+
+.service-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--color-accent-gradient);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.service-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-border-accent);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-gold);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.service-icon-box {
+    width: 58px;
+    height: 58px;
+    border-radius: var(--radius-sm);
+    background: rgba(201, 177, 130, 0.1);
+    border: 1px solid var(--color-border-accent);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+}
+
+.service-icon-box svg {
+    width: 28px;
+    height: 28px;
+}
+
+.service-card:hover .service-icon-box {
+    background: var(--color-accent);
+    color: var(--color-text-dark);
+    transform: rotate(-6deg) scale(1.05);
+}
+
+.service-price-wrap {
+    text-align: right;
+}
+
+.service-price {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: var(--fw-bold);
+    color: var(--color-accent);
+    line-height: 1;
+}
+
+.service-duration {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.service-title {
+    font-size: 1.4rem;
+    font-weight: var(--fw-bold);
+    margin-bottom: 12px;
+    color: var(--color-text-primary);
+}
+
+.service-desc {
+    font-size: var(--fs-small);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.service-features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--color-border);
+}
+
+.service-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+}
+
+.service-feature-item svg {
+    width: 14px;
+    height: 14px;
+    color: var(--color-accent);
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   3. Appointment Booking Section Styles
+   ========================================================================== */
+.appointment-section {
+    position: relative;
+    background-color: var(--color-bg-primary);
+}
+
+.appointment-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: var(--gap-xl);
+    align-items: center;
+}
+
+.appointment-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.contact-card-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-normal);
+}
+
+.contact-card-box:hover {
+    border-color: var(--color-border-accent);
+    background: var(--color-bg-card-hover);
+    transform: translateX(6px);
+}
+
+.contact-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-full);
+    background: rgba(201, 177, 130, 0.12);
+    border: 1px solid var(--color-border-accent);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-card-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.contact-card-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+}
+
+.contact-card-value {
+    font-size: 1.05rem;
+    font-weight: var(--fw-semibold);
+    color: var(--color-text-primary);
+}
+
+/* Booking Form Container */
+.booking-form-card {
+    background: rgba(22, 24, 27, 0.9);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border-accent);
+    border-radius: var(--radius-md);
+    padding: clamp(32px, 5vw, 50px);
+    box-shadow: var(--shadow-lg);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap-md);
+}
+
+/* ==========================================================================
+   4. Gallery Section Styles
+   ========================================================================== */
+.gallery-section {
+    position: relative;
+    background-color: var(--color-bg-secondary);
+}
+
+.gallery-filter-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-tab {
+    padding: 10px 24px;
+    border-radius: var(--radius-full);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-tab:hover,
+.filter-tab.active {
+    background: var(--color-accent-gradient);
+    color: var(--color-text-dark);
+    border-color: var(--color-accent);
+    font-weight: var(--fw-bold);
+    box-shadow: var(--shadow-gold);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-md);
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    height: 340px;
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(17, 18, 20, 0.95) 0%, rgba(17, 18, 20, 0.4) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+    opacity: 0;
+    transition: all var(--transition-normal);
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.08);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-category-badge {
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    font-weight: var(--fw-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.gallery-title {
+    font-size: 1.25rem;
+    font-weight: var(--fw-bold);
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+}
+
+.gallery-zoom-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
+    color: var(--color-text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: transform var(--transition-bounce);
+}
+
+.gallery-item:hover .gallery-zoom-btn {
+    transform: scale(1);
+}
+
+/* ==========================================================================
+   5. Shop / Products Section Styles
+   ========================================================================== */
+.products-section {
+    position: relative;
+    background-color: var(--color-bg-primary);
+}
+
+.product-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    border-color: var(--color-border-accent);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+.product-thumb-wrap {
+    position: relative;
+    padding: 30px;
+    background: var(--color-bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 260px;
+}
+
+.product-thumb {
+    max-height: 200px;
+    width: auto;
+    transition: transform var(--transition-smooth);
+}
+
+.product-card:hover .product-thumb {
+    transform: scale(1.08);
+}
+
+.product-badge-pos {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+}
+
+.product-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.product-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.product-category {
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: var(--fw-semibold);
+}
+
+.product-name {
+    font-size: 1.25rem;
+    font-weight: var(--fw-bold);
+    color: var(--color-text-primary);
+    margin-bottom: 12px;
+}
+
+.product-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.product-price {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: var(--fw-bold);
+    color: var(--color-text-primary);
+}
+
+.product-old-price {
+    font-size: 0.95rem;
+    color: var(--color-text-dim);
+    text-decoration: line-through;
+}
+
+/* ==========================================================================
+   6. Video CTA Section Styles
+   ========================================================================== */
+.video-section {
+    position: relative;
+    padding: clamp(100px, 14vw, 180px) 0;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(17,18,20,0.7) 0%, rgba(17,18,20,0.95) 100%);
+}
+
+.video-content {
+    position: relative;
+    z-index: var(--z-content);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.video-play-wrap {
+    margin-bottom: 36px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   7. Team / Barbers Section Styles
+   ========================================================================== */
+.team-section {
+    position: relative;
+    background-color: var(--color-bg-secondary);
+}
+
+.team-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.team-card:hover {
+    border-color: var(--color-border-accent);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-gold);
+}
+
+.team-photo-wrap {
+    position: relative;
+    height: 380px;
+    overflow: hidden;
+    background: var(--color-bg-tertiary);
+}
+
+.team-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.team-card:hover .team-photo {
+    transform: scale(1.06);
+}
+
+.team-card-body {
+    padding: 28px;
+    text-align: center;
+}
+
+.team-name {
+    font-size: 1.5rem;
+    font-weight: var(--fw-bold);
+    color: var(--color-text-primary);
+    margin-bottom: 6px;
+}
+
+.team-role {
+    font-size: 0.8125rem;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: var(--fw-semibold);
+    margin-bottom: 16px;
+}
+
+.team-social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.team-social-links a {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.team-social-links a:hover {
+    background: var(--color-accent);
+    color: var(--color-text-dark);
+    border-color: var(--color-accent);
+}
+
+.team-social-links a svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* ==========================================================================
+   8. Testimonials Section Styles
+   ========================================================================== */
+.testimonials-section {
+    position: relative;
+    background-color: var(--color-bg-primary);
+}
+
+.testimonial-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: clamp(32px, 5vw, 48px);
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+.testimonial-quote-icon {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    color: rgba(201, 177, 130, 0.15);
+}
+
+.testimonial-text {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    line-height: 1.55;
+    color: var(--color-text-primary);
+    margin-bottom: 28px;
+    font-style: italic;
+}
+
+.testimonial-author-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.testimonial-avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-accent);
+    overflow: hidden;
+}
+
+.testimonial-name {
+    font-size: 1.1rem;
+    font-weight: var(--fw-bold);
+    color: var(--color-text-primary);
+}
+
+.testimonial-role {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   9. FAQ Section Styles
+   ========================================================================== */
+.faq-section {
+    position: relative;
+    background-color: var(--color-bg-secondary);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--gap-xl);
+    align-items: center;
+}
+
+.faq-item {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color var(--transition-fast);
+}
+
+.faq-item.active {
+    border-color: var(--color-border-accent);
+    background: var(--color-bg-card-hover);
+}
+
+.faq-question {
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.faq-question-text {
+    font-size: 1.1rem;
+    font-weight: var(--fw-semibold);
+    color: var(--color-text-primary);
+    font-family: var(--font-heading);
+}
+
+.faq-toggle-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    background: rgba(201, 177, 130, 0.1);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform var(--transition-fast);
+}
+
+.faq-item.active .faq-toggle-icon {
+    background: var(--color-accent);
+    color: var(--color-text-dark);
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 28px;
+    color: var(--color-text-secondary);
+    font-size: var(--fs-body);
+    line-height: 1.7;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    padding-bottom: 24px;
+}
+
+/* ==========================================================================
+   10. Blog / News Section Styles
+   ========================================================================== */
+.blog-section {
+    position: relative;
+    background-color: var(--color-bg-primary);
+}
+
+.blog-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.blog-card:hover {
+    border-color: var(--color-border-accent);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+.blog-thumb-wrap {
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+    background: var(--color-bg-tertiary);
+}
+
+.blog-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.blog-card:hover .blog-thumb {
+    transform: scale(1.06);
+}
+
+.blog-content {
+    padding: 28px;
+}
+
+.blog-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-bottom: 12px;
+}
+
+.blog-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.blog-meta-item svg {
+    width: 13px;
+    height: 13px;
+    color: var(--color-accent);
+}
+
+.blog-title {
+    font-size: 1.35rem;
+    font-weight: var(--fw-bold);
+    color: var(--color-text-primary);
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.blog-excerpt {
+    font-size: var(--fs-small);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   11. Luxury Marquee Ticker Bar
+   ========================================================================== */
+.marquee-bar {
+    background: var(--color-accent-gradient);
+    color: var(--color-text-dark);
+    padding: 18px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    z-index: 5;
+    box-shadow: var(--shadow-gold);
+}
+
+.marquee-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 40px;
+    animation: marqueeScroll 25s linear infinite;
+}
+
+.marquee-item {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: var(--fw-bold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.marquee-star {
+    font-size: 0.9rem;
+    color: #111214;
+}

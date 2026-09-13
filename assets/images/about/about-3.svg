@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 420" width="350" height="420">
+  <defs>
+    <linearGradient id="abGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b1c21" />
+      <stop offset="100%" stop-color="#0e0f11" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#abGrad3)"/>
+  <rect x="12" y="12" width="326" height="396" rx="8" fill="none" stroke="rgba(201,177,130,0.3)" stroke-width="1.5"/>
+
+  <!-- Barbershop Interior Details / Chair / Mirror Motif -->
+  <g transform="translate(175, 200)">
+    <!-- Mirror Arch -->
+    <path d="M-80 90 L-80 -50 C-80 -110 80 -110 80 -50 L80 90 Z" fill="none" stroke="#C9B182" stroke-width="2"/>
+    <ellipse cx="0" cy="90" rx="90" ry="12" fill="none" stroke="#C9B182" stroke-width="1.5"/>
+    
+    <!-- Light Bulbs on Mirror -->
+    <circle cx="-80" cy="-20" r="4" fill="#C9B182"/>
+    <circle cx="-80" cy="30" r="4" fill="#C9B182"/>
+    <circle cx="80" cy="-20" r="4" fill="#C9B182"/>
+    <circle cx="80" cy="30" r="4" fill="#C9B182"/>
+    <circle cx="0" cy="-100" r="4" fill="#C9B182"/>
+    
+    <!-- Cologne / Pomade Jar -->
+    <rect x="-30" y="55" width="25" height="30" rx="3" fill="#C9B182" opacity="0.6"/>
+    <rect x="10" y="45" width="20" height="40" rx="4" fill="#C9B182" opacity="0.4"/>
+  </g>
+
+  <text x="175" y="370" font-family="'Cormorant Infant', serif" font-size="18" font-weight="600" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">BESPOKE AMBIANCE</text>
+</svg>

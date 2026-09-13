@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="600" height="500">
+  <defs>
+    <linearGradient id="galGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a221b" />
+      <stop offset="100%" stop-color="#0c0d0f" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#galGrad6)"/>
+  <rect x="15" y="15" width="570" height="470" rx="8" fill="none" stroke="rgba(201,177,130,0.3)" stroke-width="1.5"/>
+  
+  <g transform="translate(300, 230)">
+    <!-- Full Beard Trim & Mustache Wax -->
+    <circle cx="0" cy="-20" r="95" fill="#46382b"/>
+    <path d="M-60 10 C-60 110 -20 150 0 155 C20 150 60 110 60 10 Z" fill="#121316"/>
+    <!-- Handlebar Mustache -->
+    <path d="M-50 20 Q-20 40 0 25 Q20 40 50 20 Q70 0 80 -15 Q65 -5 45 10 Q20 20 0 10 Q-20 20 -45 10 Q-65 -5 -80 -15 Q-70 0 -50 20 Z" fill="#C9B182"/>
+  </g>
+  <text x="300" y="440" font-family="'Cormorant Infant', serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">FULL BEARD &amp; MUSTACHE WAX</text>
+  <text x="300" y="465" font-family="'Inter Tight', sans-serif" font-size="11" font-weight="600" fill="#C9B182" text-anchor="middle" letter-spacing="2">BEARD CARE</text>
+</svg>

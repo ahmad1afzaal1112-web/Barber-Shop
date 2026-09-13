@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="600" height="500">
+  <defs>
+    <linearGradient id="galGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#192622" />
+      <stop offset="100%" stop-color="#0c0d0f" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#galGrad5)"/>
+  <rect x="15" y="15" width="570" height="470" rx="8" fill="none" stroke="rgba(201,177,130,0.3)" stroke-width="1.5"/>
+  
+  <g transform="translate(300, 230)">
+    <circle cx="0" cy="-20" r="100" fill="#443a2f"/>
+    <!-- Classic Parting Line -->
+    <path d="M-80 -40 C-80 -120 40 -120 90 -60 C70 -20 50 0 0 0 Z" fill="#141518"/>
+    <line x1="-50" y1="-80" x2="30" y2="-40" stroke="#C9B182" stroke-width="2"/>
+  </g>
+  <text x="300" y="440" font-family="'Cormorant Infant', serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">CLASSIC SIDE PART &amp; TAPER</text>
+  <text x="300" y="465" font-family="'Inter Tight', sans-serif" font-size="11" font-weight="600" fill="#C9B182" text-anchor="middle" letter-spacing="2">GENTLEMAN ESSENTIAL</text>
+</svg>
