@@ -5,7 +5,7 @@
  */
 
 $db_host = getenv('DB_HOST') ?: '127.0.0.1';
-$db_port = getenv('DB_PORT') ?: '3306';
+$db_port = getenv('DB_PORT') ?: '3307';
 $db_name = getenv('DB_NAME') ?: 'kre8_barbershop';
 $db_user = getenv('DB_USER') ?: 'root';
 $db_pass = getenv('DB_PASS') ?: '';

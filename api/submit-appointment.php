@@ -32,10 +32,10 @@ $first_name = sanitize_input($input_data['first_name'] ?? '');
 $last_name  = sanitize_input($input_data['last_name'] ?? '');
 $email      = filter_var(trim($input_data['email'] ?? ''), FILTER_VALIDATE_EMAIL);
 $phone      = sanitize_input($input_data['phone'] ?? '');
-$service    = sanitize_input($input_data['service'] ?? 'Classic Haircut');
-$barber     = sanitize_input($input_data['barber'] ?? 'Any Available Master');
+$service_input = sanitize_input($input_data['service'] ?? 'Classic Haircut');
+$barber_input  = sanitize_input($input_data['barber'] ?? 'Any Available Master');
 $date       = sanitize_input($input_data['appointment_date'] ?? date('Y-m-d'));
-$time       = sanitize_input($input_data['appointment_time'] ?? '10:00 AM');
+$time_raw   = sanitize_input($input_data['appointment_time'] ?? '10:00 AM');
 $message    = sanitize_input($input_data['message'] ?? '');
 
 // Validation
@@ -57,21 +57,73 @@ if (empty($phone)) {
     exit;
 }
 
-// Store Record in Database or Local JSON storage
+// Convert time to standard 24h format (H:i:s) for DB consistency
+$time_24h = date('H:i:s', strtotime($time_raw));
+
+// Store Record in Database
 $saved = false;
 $pdo = get_db_connection();
 
 if ($pdo) {
     try {
-        $stmt = $pdo->prepare("INSERT INTO appointments (first_name, last_name, email, phone, service, barber, appointment_date, appointment_time, message, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'confirmed')");
-        $stmt->execute([$first_name, $last_name, $email, $phone, $service, $barber, $date, $time, $message]);
+        // Resolve customer or create new
+        $stmt = $pdo->prepare("SELECT id FROM customers WHERE email = ? LIMIT 1");
+        $stmt->execute([$email]);
+        $customer_id = $stmt->fetchColumn();
+
+        if (!$customer_id) {
+            $stmt = $pdo->prepare("INSERT INTO customers (first_name, last_name, email, phone) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$first_name, $last_name, $email, $phone]);
+            $customer_id = $pdo->lastInsertId();
+        }
+
+        // Resolve service ID & duration
+        $service_id = null;
+        $service_duration = 45;
+        $stmt = $pdo->prepare("SELECT id, title, duration_minutes FROM services WHERE title = ? OR title LIKE ? LIMIT 1");
+        $stmt->execute([$service_input, "%{$service_input}%"]);
+        $srv = $stmt->fetch();
+        if ($srv) {
+            $service_id = $srv['id'];
+            $service_duration = (int) $srv['duration_minutes'];
+        }
+
+        // Resolve barber ID
+        $barber_id = null;
+        if (!empty($barber_input) && $barber_input !== 'Any Available Master') {
+            $stmt = $pdo->prepare("SELECT id, name FROM barbers WHERE name = ? OR name LIKE ? LIMIT 1");
+            $stmt->execute([$barber_input, "%{$barber_input}%"]);
+            $brb = $stmt->fetch();
+            if ($brb) {
+                $barber_id = $brb['id'];
+            }
+        }
+
+        $end_time = date('H:i:s', strtotime($time_24h) + ($service_duration * 60));
+
+        $stmt = $pdo->prepare("INSERT INTO appointments (customer_id, service_id, barber_id, first_name, last_name, email, phone, service_name, barber_name, appointment_date, appointment_time, end_time, message, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'confirmed')");
+        $stmt->execute([
+            $customer_id,
+            $service_id,
+            $barber_id,
+            $first_name,
+            $last_name,
+            $email,
+            $phone,
+            $service_input,
+            $barber_input,
+            $date,
+            $time_24h,
+            $end_time,
+            $message
+        ]);
         $saved = true;
     } catch (\Throwable $e) {
         error_log("DB insert failed: " . $e->getMessage());
     }
 }
 
-// File fallback storage if DB not running
+// Fallback JSON storage if DB unavailable
 if (!$saved) {
     $data_dir = __DIR__ . '/../data';
     if (!is_dir($data_dir)) {
@@ -87,10 +139,10 @@ if (!$saved) {
         'last_name' => $last_name,
         'email' => $email,
         'phone' => $phone,
-        'service' => $service,
-        'barber' => $barber,
+        'service' => $service_input,
+        'barber' => $barber_input,
         'appointment_date' => $date,
-        'appointment_time' => $time,
+        'appointment_time' => $time_raw,
         'message' => $message,
         'created_at' => date('Y-m-d H:i:s')
     ];
@@ -100,5 +152,5 @@ if (!$saved) {
 
 echo json_encode([
     'success' => true,
-    'message' => "Appointment Confirmed! Thank you, {$first_name}. We look forward to welcoming you for {$service} on {$date} at {$time}."
+    'message' => "Appointment Confirmed! Thank you, {$first_name}. We look forward to welcoming you for {$service_input} on {$date} at {$time_raw}."
 ]);
