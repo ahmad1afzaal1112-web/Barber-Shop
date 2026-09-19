@@ -130,28 +130,29 @@
 .reveal {
     opacity: 0;
     will-change: transform, opacity;
-    transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 0.65s var(--ease-out-smooth),
+                transform 0.65s var(--ease-out-expo);
 }
 
 .reveal.reveal-up {
-    transform: translateY(40px);
+    transform: translateY(32px);
 }
 
 .reveal.reveal-down {
-    transform: translateY(-40px);
+    transform: translateY(-32px);
 }
 
 .reveal.reveal-left {
-    transform: translateX(-40px);
+    transform: translateX(-36px);
 }
 
 .reveal.reveal-right {
-    transform: translateX(40px);
+    transform: translateX(36px);
 }
 
+.reveal.reveal-scale,
 .reveal.reveal-zoom {
-    transform: scale(0.9);
+    transform: scale(0.93);
 }
 
 /* Active State (Triggered by JS Observer) */
@@ -160,7 +161,46 @@
     transform: translate(0, 0) scale(1);
 }
 
+/* ==========================================================================
+   6. Image Reveal Effect (Curtain Reveal Mask + Counter-scale)
+   ========================================================================== */
+.reveal-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.reveal-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #181A1D;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 0.75s var(--ease-out-smooth);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.reveal-image img,
+.reveal-image .gallery-card-img,
+.reveal-image .team-photo {
+    transform: scale(1.12);
+    transition: transform 0.85s var(--ease-out-expo);
+    will-change: transform;
+}
+
+.reveal-image.is-revealed::after {
+    transform: scaleX(0);
+}
+
+.reveal-image.is-revealed img,
+.reveal-image.is-revealed .gallery-card-img,
+.reveal-image.is-revealed .team-photo {
+    transform: scale(1);
+}
+
 /* Stagger Delays */
+.delay-0 { transition-delay: 0ms; }
 .delay-1 { transition-delay: 100ms; }
 .delay-2 { transition-delay: 200ms; }
 .delay-3 { transition-delay: 300ms; }
@@ -176,4 +216,109 @@
 /* Infinite Rotating Text */
 .spin-anim {
     animation: spinSlow 20s linear infinite;
+}
+
+/* ==========================================================================
+   10. Desktop Luxury Micro-Cursor
+   ========================================================================== */
+@media (hover: hover) and (pointer: fine) {
+    .custom-cursor-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        background-color: var(--color-accent);
+        border-radius: var(--radius-full);
+        pointer-events: none;
+        z-index: var(--z-cursor);
+        margin-top: -3px;
+        margin-left: -3px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        will-change: transform, opacity;
+    }
+
+    .custom-cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 32px;
+        height: 32px;
+        border: 1.5px solid rgba(201, 177, 130, 0.45);
+        border-radius: var(--radius-full);
+        pointer-events: none;
+        z-index: var(--z-cursor);
+        margin-top: -16px;
+        margin-left: -16px;
+        opacity: 0;
+        transition: opacity 0.25s ease, border-color 0.2s ease, background-color 0.2s ease, width 0.2s ease, height 0.2s ease, margin 0.2s ease;
+        will-change: transform, opacity;
+    }
+
+    .custom-cursor-dot.active,
+    .custom-cursor-ring.active {
+        opacity: 1;
+    }
+
+    .custom-cursor-ring.hover {
+        width: 48px;
+        height: 48px;
+        margin-top: -24px;
+        margin-left: -24px;
+        border-color: var(--color-accent);
+        background: rgba(201, 177, 130, 0.08);
+    }
+}
+
+/* ==========================================================================
+   11. Reduced Motion Support
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal,
+    .reveal.reveal-up,
+    .reveal.reveal-down,
+    .reveal.reveal-left,
+    .reveal.reveal-right,
+    .reveal.reveal-scale,
+    .reveal.reveal-zoom {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .reveal-image::after {
+        display: none !important;
+    }
+
+    .reveal-image img,
+    .reveal-image .gallery-card-img,
+    .reveal-image .team-photo {
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .float-anim,
+    .spin-anim,
+    .marquee-track,
+    .play-btn-pulse::before,
+    .play-btn-pulse::after,
+    .hero-slide-bg {
+        animation: none !important;
+        transform: none !important;
+    }
+
+    .custom-cursor-dot,
+    .custom-cursor-ring {
+        display: none !important;
+    }
 }

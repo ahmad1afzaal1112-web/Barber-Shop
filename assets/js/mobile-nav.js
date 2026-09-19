@@ -15,16 +15,22 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileToggle.classList.add('active');
         mobileToggle.setAttribute('aria-expanded', 'true');
         mobileDrawer.classList.add('active');
+        mobileDrawer.setAttribute('aria-hidden', 'false');
         if (mobileOverlay) mobileOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
+        if (mobileCloseBtn) {
+            setTimeout(() => mobileCloseBtn.focus(), 150);
+        }
     }
 
     function closeDrawer() {
         mobileToggle.classList.remove('active');
         mobileToggle.setAttribute('aria-expanded', 'false');
         mobileDrawer.classList.remove('active');
+        mobileDrawer.setAttribute('aria-hidden', 'true');
         if (mobileOverlay) mobileOverlay.classList.remove('active');
         document.body.style.overflow = '';
+        mobileToggle.focus();
     }
 
     mobileToggle.addEventListener('click', () => {

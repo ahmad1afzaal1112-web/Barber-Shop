@@ -103,21 +103,33 @@
     --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
     --shadow-inset-gold: inset 0 1px 0 rgba(201, 177, 130, 0.12);
 
-    /* ─── Transitions ─── */
-    --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-smooth: 450ms cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-bounce: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
-    --transition-slide: 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* ─── Motion & Transition Tokens ─── */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --duration-fast: 180ms;
+    --duration-normal: 300ms;
+    --duration-large: 650ms;
+
+    --transition-fast: var(--duration-fast) var(--ease-standard);
+    --transition-normal: var(--duration-normal) var(--ease-standard);
+    --transition-smooth: 450ms var(--ease-out-expo);
+    --transition-bounce: 500ms var(--ease-spring);
+    --transition-slide: 600ms var(--ease-out-smooth);
 
     /* ─── Z-Index Hierarchy ─── */
     --z-bg-parallax: 1;
     --z-content: 2;
     --z-dropdown: 900;
+    --z-back-to-top: 990;
     --z-header: 1000;
     --z-drawer: 1100;
     --z-modal: 1200;
     --z-toast: 1300;
+    --z-cursor: 9999;
 
     /* ─── Heights ─── */
     --topbar-height: 42px;

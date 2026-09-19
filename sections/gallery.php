@@ -50,7 +50,7 @@ $gallery_items = get_gallery_items();
                      role="button"
                      aria-label="View <?php echo htmlspecialchars($item['title']); ?>">
                     
-                    <div class="gallery-card-inner">
+                    <div class="gallery-card-inner reveal-image">
                         <img src="<?php echo htmlspecialchars($item['image_url']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>" class="gallery-card-img" loading="lazy">
                         
                         <div class="gallery-card-overlay">

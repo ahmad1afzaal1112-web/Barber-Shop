@@ -61,14 +61,51 @@ $config = get_app_config();
             <!-- Left: Navigation Links -->
             <nav class="desktop-nav" aria-label="Main Navigation">
                 <ul class="nav-menu">
-                    <?php foreach ($config['nav_menu'] as $item): ?>
-                        <li class="nav-item <?php echo $item['active'] ? 'active' : ''; ?>">
+                    <?php 
+                    $submenus = [
+                        'Home' => [
+                            ['label' => 'Main Showcase', 'url' => '#hero'],
+                            ['label' => 'Craftsmanship Reel', 'url' => '#video'],
+                            ['label' => 'VIP Concierge', 'url' => '#appointment']
+                        ],
+                        'Pages' => [
+                            ['label' => 'Pricing Packages', 'url' => '#pricing'],
+                            ['label' => 'Artisan Portfolio', 'url' => '#gallery'],
+                            ['label' => 'Master Barbers', 'url' => '#team'],
+                            ['label' => 'Distinguished Reviews', 'url' => '#testimonials']
+                        ],
+                        'Shop' => [
+                            ['label' => 'Pomades & Balms', 'url' => '#services'],
+                            ['label' => 'Shaving Tonics', 'url' => '#services'],
+                            ['label' => 'Artisan Straight Razors', 'url' => '#services']
+                        ],
+                        'Blogs' => [
+                            ['label' => 'Grooming Masterclass', 'url' => '#video'],
+                            ['label' => 'Beard Sculpting Guide', 'url' => '#services'],
+                            ['label' => 'Seasonal Styling Trends', 'url' => '#gallery']
+                        ]
+                    ];
+                    foreach ($config['nav_menu'] as $item): 
+                        $hasDrop = !empty($item['has_dropdown']) && isset($submenus[$item['label']]);
+                    ?>
+                        <li class="nav-item <?php echo $item['active'] ? 'active' : ''; ?><?php echo $hasDrop ? ' has-dropdown' : ''; ?>">
                             <a href="<?php echo htmlspecialchars($item['url']); ?>" class="nav-link">
                                 <span><?php echo htmlspecialchars($item['label']); ?></span>
-                                <?php if (!empty($item['has_dropdown'])): ?>
+                                <?php if ($hasDrop): ?>
                                     <?php echo render_svg_icon('chevron-down', 'nav-chevron'); ?>
                                 <?php endif; ?>
                             </a>
+                            <?php if ($hasDrop): ?>
+                                <ul class="nav-dropdown" aria-label="<?php echo htmlspecialchars($item['label']); ?> Submenu">
+                                    <?php foreach ($submenus[$item['label']] as $sub): ?>
+                                        <li class="nav-dropdown-item">
+                                            <a href="<?php echo htmlspecialchars($sub['url']); ?>" class="nav-dropdown-link">
+                                                <?php echo htmlspecialchars($sub['label']); ?>
+                                            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
                 </ul>

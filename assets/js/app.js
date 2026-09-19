@@ -129,4 +129,87 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === videoModal) closeVideoModal();
         });
     }
+
+    // 6. Polished Floating Scroll-To-Top Control
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('is-visible');
+            } else {
+                backToTopBtn.classList.remove('is-visible');
+            }
+        }, { passive: true });
+
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // 7. Desktop Fine-Pointer Luxury Micro-Cursor
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (finePointer && !reducedMotion) {
+        const cursorDot = document.createElement('div');
+        cursorDot.className = 'custom-cursor-dot';
+        const cursorRing = document.createElement('div');
+        cursorRing.className = 'custom-cursor-ring';
+        document.body.appendChild(cursorDot);
+        document.body.appendChild(cursorRing);
+
+        let mouseX = -100, mouseY = -100;
+        let ringX = -100, ringY = -100;
+        let isCursorActive = false;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (!isCursorActive) {
+                isCursorActive = true;
+                cursorDot.classList.add('active');
+                cursorRing.classList.add('active');
+            }
+            cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+        }, { passive: true });
+
+        function animateCursorRing() {
+            ringX += (mouseX - ringX) * 0.18;
+            ringY += (mouseY - ringY) * 0.18;
+            cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+            requestAnimationFrame(animateCursorRing);
+        }
+        requestAnimationFrame(animateCursorRing);
+
+        document.addEventListener('mouseleave', () => {
+            cursorDot.classList.remove('active');
+            cursorRing.classList.remove('active');
+            isCursorActive = false;
+        });
+
+        document.addEventListener('mouseenter', () => {
+            if (isCursorActive) {
+                cursorDot.classList.add('active');
+                cursorRing.classList.add('active');
+            }
+        });
+
+        // Interactive hover feedback on clickable elements
+        const interactiveSelector = 'a, button, input, select, textarea, .service-card, .pricing-card, .team-card, .gallery-card-item, .filter-tab, .testimonial-card';
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest(interactiveSelector)) {
+                cursorRing.classList.add('hover');
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest(interactiveSelector)) {
+                cursorRing.classList.remove('hover');
+            }
+        });
+    }
 });

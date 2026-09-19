@@ -35,7 +35,7 @@ $team = get_team_members();
         <div class="team-grid">
             <?php foreach ($team as $index => $member): ?>
                 <div class="team-card reveal reveal-up delay-<?php echo ($index % 3) + 1; ?>">
-                    <div class="team-photo-wrap">
+                    <div class="team-photo-wrap reveal-image">
                         <img src="<?php echo htmlspecialchars($member['image_url']); ?>" alt="<?php echo htmlspecialchars($member['name']); ?>" class="team-photo" loading="lazy">
                         
                         <!-- Hover Overlay with Smooth Social Links Reveal -->

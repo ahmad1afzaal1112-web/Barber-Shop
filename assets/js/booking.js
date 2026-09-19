@@ -37,6 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const firstNameInput = document.getElementById('first_name');
                     if (firstNameInput) firstNameInput.focus();
                 }, 600);
+            }
+        });
+    });
+
     // 1b. Barber Selection Pre-Fill from Team Cards
     const barberSelect = document.getElementById('barber');
     document.querySelectorAll('.select-barber-btn').forEach(btn => {
